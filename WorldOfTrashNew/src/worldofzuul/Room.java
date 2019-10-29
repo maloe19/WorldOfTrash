@@ -1,5 +1,6 @@
 package worldofzuul;
 
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,20 +11,36 @@ public class Room
     //Attributes
     private String description;
     private HashMap<String, Room> exits;
-
+    private ArrayList<Trash> trashList;
+    
     //Constructors
-    public Room(String description) 
-    {
+    public Room(String description) {
         this.description = description;
         exits = new HashMap<String, Room>();
+        trashList = new ArrayList<Trash>();
     }
-
+    
     //Method(It is a exit to another room)
     public void setExit(String direction, Room neighbor) 
     {
         exits.put(direction, neighbor);
     }
+    
 
+    public void setTrash(Trash trash) 
+    {
+        trashList.add(trash);
+    }
+
+     public ArrayList<Trash> getTrashList() {
+        return trashList; 
+     }
+    
+    public void getTrashName(){
+       for (Trash tr : trashList){
+           System.out.println(tr.getName());
+       }}
+  
     //Method
     public String getShortDescription()
     {

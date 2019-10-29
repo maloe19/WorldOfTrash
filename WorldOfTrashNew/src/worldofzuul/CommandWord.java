@@ -3,7 +3,7 @@ package worldofzuul;
 public enum CommandWord
 {
     //Enums(They are unchangeable variables)
-    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?");
+    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), SEARCH("search");
     
     //Attributes
     private String commandString;

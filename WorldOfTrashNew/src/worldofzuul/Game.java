@@ -1,5 +1,8 @@
 package worldofzuul;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Game 
 {
     private Parser parser;
@@ -15,17 +18,27 @@ public class Game
     //Method
     private void createRooms()
     {
-        Room outside, recycle, playground, forrest, beach;
-      
+        Room outside, recycle, playground, forrest, beach, street;
+        Trash bottle = new Trash("Bottle");
+        Trash can = new Trash("Can");
+        Trash straw = new Trash("Straw");
+        
         outside = new Room("outside of your home");
         recycle = new Room("in the recycling room");
         playground = new Room("at the playground");
         forrest = new Room("in the forrest");
         beach = new Room("at the beach");
+        street = new Room("on the street");
+        
+        street.setTrash(can);
+        street.setTrash(bottle);
+        
+        beach.setTrash(straw);
         
         outside.setExit("east", recycle);
         outside.setExit("south", forrest);
         outside.setExit("west", playground);
+        outside.setExit("north", street);
 
         recycle.setExit("west", outside);
 
@@ -35,7 +48,10 @@ public class Game
         forrest.setExit("east", beach);
 
         beach.setExit("west", forrest);
-
+        
+        street.setExit("south", outside);
+        
+        
         currentRoom = outside;
     }
 
@@ -50,15 +66,16 @@ public class Game
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Hope you learned something from this game. \nThank you for playing!");
+        System.out.println("KEEP RECYCLING!");
     }
 
     //Method(intro)
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the World Of Trash!");
+        System.out.println("World Of Trash is text-based \nlearning game about the enviroment");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -82,6 +99,10 @@ public class Game
         else if (commandWord == CommandWord.GO) {
             goRoom(command);
         }
+        else if(commandWord == CommandWord.SEARCH) {
+            System.out.println("This is what you found: ");
+            currentRoom.getTrashName();
+        }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
@@ -91,8 +112,8 @@ public class Game
     //Method(for help)
     private void printHelp() 
     {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("In a world of extinction, you seek guidance");
+        System.out.println("relying on the power of these commands");
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
