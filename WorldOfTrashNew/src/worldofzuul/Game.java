@@ -19,10 +19,18 @@ public class Game
     private void createRooms()
     {
         Room outside, recycle, playground, forrest, beach, street;
-        Trash bottle = new Trash("Bottle");
-        Trash can = new Trash("Can");
+        Trash bottle_g = new Trash("Beer bottle");
+        Trash can_s = new Trash("Can soda");
         Trash straw = new Trash("Straw");
-        
+        Trash newspaper = new Trash("Newspaper");
+        Trash banana = new Trash("Old banana");
+        Trash bag = new Trash("Paper bag");
+        Trash cardboard = new Trash("Cardboard");
+        Trash bottle_p = new Trash("Plastic bottle");
+        Trash ball = new Trash ("Deflated ball");
+        Trash juice = new Trash ("Juice box");
+        Trash can_f = new Trash ("Food can");
+                
         outside = new Room("outside of your home");
         recycle = new Room("in the recycling room");
         playground = new Room("at the playground");
@@ -30,16 +38,28 @@ public class Game
         beach = new Room("at the beach");
         street = new Room("on the street");
         
-        street.setTrash(can);
-        street.setTrash(bottle);
+        street.setTrash(can_s);
+        street.setTrash(bottle_g);
+        street.setTrash(newspaper);
+        
+        playground.setTrash(juice);
+        playground.setTrash(ball);
+        playground.setTrash(bag);
+        
+        forrest.setTrash(banana);
+        forrest.setTrash(can_f);
         
         beach.setTrash(straw);
+        beach.setTrash(cardboard);
+        beach.setTrash(bottle_p);
+        
+        
         
         outside.setExit("east", recycle);
         outside.setExit("south", forrest);
         outside.setExit("west", playground);
         outside.setExit("north", street);
-
+        
         recycle.setExit("west", outside);
 
         playground.setExit("east", outside);
@@ -100,8 +120,10 @@ public class Game
             goRoom(command);
         }
         else if(commandWord == CommandWord.SEARCH) {
-            System.out.println("This is what you found: ");
-            currentRoom.getTrashName();
+            currentRoom.getTrashNames();
+        }
+        else if(commandWord == CommandWord.PICKUP) {
+            currentRoom.pickUpTrash(command);
         }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);

@@ -12,6 +12,7 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
     private ArrayList<Trash> trashList;
+
     
     //Constructors
     public Room(String description) {
@@ -36,11 +37,32 @@ public class Room
         return trashList; 
      }
     
-    public void getTrashName(){
-       for (Trash tr : trashList){
+    public void getTrashNames(){
+       if(trashList.isEmpty()==true)
+       {
+           System.out.println("You found nothing here!");
+       }
+       else 
+       {
+           System.out.println("This is what you found: ");
+           for (Trash tr : trashList){
            System.out.println(tr.getName());
-       }}
-  
+       }}}
+    
+    public void pickUpTrash(Command command)
+    {
+        if (!command.hasSecondWord())
+        {
+            System.out.println("Pick up what?");
+        }
+        else 
+        {
+            String item = command.getSecondWord();
+           
+        }
+            
+    }
+    
     //Method
     public String getShortDescription()
     {
