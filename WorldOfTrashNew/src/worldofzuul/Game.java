@@ -2,12 +2,17 @@ package worldofzuul;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Game 
 {
     private Parser parser;
     private Room currentRoom;
-        
+    Inventory inv = new Inventory();
+    
+    
     //Constructors
     public Game() 
     {
@@ -19,17 +24,17 @@ public class Game
     private void createRooms()
     {
         Room outside, recycle, playground, forrest, beach, street;
-        Trash bottle_g = new Trash("Beer bottle");
-        Trash can_s = new Trash("Can soda");
-        Trash straw = new Trash("Straw");
-        Trash newspaper = new Trash("Newspaper");
-        Trash banana = new Trash("Old banana");
-        Trash bag = new Trash("Paper bag");
-        Trash cardboard = new Trash("Cardboard");
-        Trash bottle_p = new Trash("Plastic bottle");
-        Trash ball = new Trash ("Deflated ball");
-        Trash juice = new Trash ("Juice box");
-        Trash can_f = new Trash ("Food can");
+        Trash bottle_g = new GlassTrash("Beer bottle");
+        Trash can_s = new MetalTrash("Can soda");
+        Trash straw = new PlasticTrash("Straw");
+        Trash newspaper = new CardboardTrash("Newspaper");
+        Trash bulb = new GlassTrash("Light bulb");
+        Trash bag = new CardboardTrash("Paper bag");
+        Trash cardboard = new CardboardTrash("Cardboard");
+        Trash bottle_p = new PlasticTrash("Plastic bottle");
+        Trash ball = new PlasticTrash ("Deflated ball");
+        Trash juice = new CardboardTrash ("Juice box");
+        Trash can_f = new MetalTrash ("Food can");
                 
         outside = new Room("outside of your home");
         recycle = new Room("in the recycling room");
@@ -46,14 +51,12 @@ public class Game
         playground.setTrash(ball);
         playground.setTrash(bag);
         
-        forrest.setTrash(banana);
+        forrest.setTrash(bulb);
         forrest.setTrash(can_f);
         
         beach.setTrash(straw);
         beach.setTrash(cardboard);
         beach.setTrash(bottle_p);
-        
-        
         
         outside.setExit("east", recycle);
         outside.setExit("south", forrest);
@@ -70,6 +73,8 @@ public class Game
         beach.setExit("west", forrest);
         
         street.setExit("south", outside);
+        
+        recycle.setBin();
         
         
         currentRoom = outside;
@@ -90,12 +95,34 @@ public class Game
         System.out.println("KEEP RECYCLING!");
     }
 
+    private synchronized void delay(long milsec){
+        try {
+            wait(milsec);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     //Method(intro)
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World Of Trash!");
-        System.out.println("World Of Trash is text-based \nlearning game about the enviroment");
+        System.out.println("Welcome to the World Of Trash!\n");
+        delay(2000);
+        System.out.println("World Of Trash is a text-based \nLearning game about the enviroment!\n");
+        delay(2000);
+        System.out.println("The world is at the brink of extinction \nBecause of all the trash lying around\n");
+        delay(2000);
+        System.out.println("And that is why we need you!\n");
+        delay(1500);
+        System.out.println("But first what is your name?");
+        Scanner obj = new Scanner(System.in);
+        System.out.print("> ");
+        String name = obj.nextLine();
+        delay(800);
+        System.out.println("Hello " + name + "! good luck on your mission to save the world!");
+        delay(2000);
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -123,12 +150,33 @@ public class Game
             currentRoom.getTrashNames();
         }
         else if(commandWord == CommandWord.PICKUP) {
-            currentRoom.pickUpTrash(command);
+            pickUpTrash(command);
         }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
         return wantToQuit;
+    }
+    
+      public void pickUpTrash(Command command)
+    {
+        if (!command.hasSecondWord())
+        {
+            System.out.println("Pick up what?");
+        }
+        else 
+        {
+            String item = command.getSecondWord();
+            Trash key = currentRoom.getTrashKey(item);
+            if(currentRoom.getTrashList().containsKey(key)){
+            inv.addTrash(item);
+            currentRoom.getTrashList().remove(key);
+            } else {
+                System.out.println("Your input is invalid.");
+            }
+            
+        }
+           
     }
 
     //Method(for help)
@@ -139,6 +187,7 @@ public class Game
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
+        
     }
 
     //Method

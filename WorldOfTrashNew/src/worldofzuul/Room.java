@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 
 public class Room 
@@ -11,15 +12,18 @@ public class Room
     //Attributes
     private String description;
     private HashMap<String, Room> exits;
-    private ArrayList<Trash> trashList;
-
+    private HashMap<Trash, String> trashList;
+    private ArrayList<PlasticTrash> plasticBin;
+    private ArrayList<MetalTrash> metalBin;
+    private ArrayList<GlassTrash> glassBin;
+    private ArrayList<CardboardTrash> CardboardBin;
+ 
     
     //Constructors
     public Room(String description) {
         this.description = description;
         exits = new HashMap<String, Room>();
-        trashList = new ArrayList<Trash>();
-    }
+}
     
     //Method(It is a exit to another room)
     public void setExit(String direction, Room neighbor) 
@@ -27,41 +31,43 @@ public class Room
         exits.put(direction, neighbor);
     }
     
+    public void setBin(){
+        
+    }
 
     public void setTrash(Trash trash) 
     {
-        trashList.add(trash);
+        trashList.put(trash, trash.getName());
     }
 
-     public ArrayList<Trash> getTrashList() {
+     public HashMap<Trash, String> getTrashList() {
         return trashList; 
      }
     
     public void getTrashNames(){
-       if(trashList.isEmpty()==true)
+       if(trashList.isEmpty())
        {
            System.out.println("You found nothing here!");
        }
        else 
        {
            System.out.println("This is what you found: ");
-           for (Trash tr : trashList){
+           for (Trash tr : trashList.keySet()){
            System.out.println(tr.getName());
        }}}
     
-    public void pickUpTrash(Command command)
-    {
-        if (!command.hasSecondWord())
-        {
-            System.out.println("Pick up what?");
+    public Trash getTrashKey(String name){
+        Trash key = null;
+        for (Map.Entry<Trash, String> tr : trashList.entrySet()){
+        if(tr.getValue().equalsIgnoreCase(name)==false){     
         }
-        else 
-        {
-            String item = command.getSecondWord();
-           
-        }
-            
+        else if (tr.getValue().equalsIgnoreCase(name)==true){
+           key = tr.getKey();
+        }}
+        return key;
     }
+    
+  
     
     //Method
     public String getShortDescription()

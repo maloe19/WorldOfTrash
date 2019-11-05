@@ -22,6 +22,7 @@ public class Parser
         String inputLine;
         String word1 = null;
         String word2 = null;
+        String word3 = null;
 
         System.out.print("> "); 
 
@@ -32,6 +33,9 @@ public class Parser
             word1 = tokenizer.next();
             if(tokenizer.hasNext()) {
                 word2 = tokenizer.next(); 
+            }
+            if(tokenizer.hasNext()) {
+                word2 = word2+" "+tokenizer.next(); 
             }
         }
 

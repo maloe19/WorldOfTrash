@@ -24,6 +24,7 @@ public class Command
     //Attributes
     private CommandWord commandWord;
     private String secondWord;
+    private String thirdWord;
 
     //Constructors
     public Command(CommandWord commandWord, String secondWord)
@@ -32,6 +33,14 @@ public class Command
         this.secondWord = secondWord;
     }
 
+   /*
+   public Command(CommandWord commandWord, String secondWord, String thirdWord)
+    {
+        this.commandWord = commandWord;
+        this.secondWord = secondWord;
+        //this.thirdWord
+    } */
+    
     //Method
     public CommandWord getCommandWord()
     {
@@ -43,7 +52,7 @@ public class Command
     {
         return secondWord;
     }
-
+    
     //Method(return either false or true if CommandWord is Unknown or not)
     public boolean isUnknown()
     {
@@ -56,4 +65,3 @@ public class Command
         return (secondWord != null);
     }
 }
-

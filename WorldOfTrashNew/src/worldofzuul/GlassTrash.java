@@ -4,26 +4,14 @@
  * and open the template in the editor.
  */
 package worldofzuul;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-
 /**
  *
  * @author Yonus Rafik
  */
-
-public class Trash {
-    private String name;
+public class GlassTrash extends Trash {
     
-    public Trash (String name)
-    {
-        this.name = name;
-    }
-    
-    public String getName() 
-    {
-        return name; 
+    public GlassTrash (String name) {
+        super(name);
     }
 }
-
