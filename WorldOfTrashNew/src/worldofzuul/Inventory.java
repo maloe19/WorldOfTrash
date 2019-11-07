@@ -6,15 +6,18 @@
 package worldofzuul;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  *
  * @author Yonus Rafik
  */
 public class Inventory {
-    private ArrayList<String> backpack;
+    private HashMap<Trash, String> backpack;
 
-    public ArrayList<String> getBackpack() {
+    public HashMap<Trash, String> getBackpack() {
         return backpack;
     }
     
@@ -22,14 +25,14 @@ public class Inventory {
 
     public Inventory()
     {
-        backpack = new ArrayList<>();
+        backpack = new HashMap<>();
     }
     
-    public void addTrash (String trash) {
+    public void addTrash (Trash key,String item) {
         if(backpack.size()<BACKCAP)
         {
-        backpack.add(trash);  
-            System.out.println("\n"+trash + " has been added to your backpack.");
+        backpack.put(key, item);  
+            System.out.println("\n"+item + " has been added to your backpack.");
             
         }
         else {
@@ -43,8 +46,10 @@ public class Inventory {
    
     
     public void printInventory (){
-        for(String i : backpack){
-            System.out.println(i);
+        Iterator it = backpack.entrySet().iterator();
+        while (it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            System.out.println(pair.getValue());
         }
     }
 }

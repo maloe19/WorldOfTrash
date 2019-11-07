@@ -152,11 +152,33 @@ public class Game
         else if(commandWord == CommandWord.PICKUP) {
             pickUpTrash(command);
         }
+        else if(commandWord == CommandWord.THROW) {
+            throwTrash(command);
+        }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
         return wantToQuit;
     }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+    
+      public void throwTrash(Command command){
+       if (!command.hasSecondWord())
+        {
+            System.out.println("Throw what?");
+        }   
+       else {
+           String item = command.getSecondWord();
+           if (currentRoom.getShortDescription().equals("in the recycling room")){
+               System.out.println("Du er i recycle");
+           } else {
+               System.out.println("Du er IKKE i recycle");
+           }
+       }
+      }
     
       public void pickUpTrash(Command command)
     {
@@ -169,7 +191,7 @@ public class Game
             String item = command.getSecondWord();
             Trash key = currentRoom.getTrashKey(item);
             if(currentRoom.getTrashList().containsKey(key)){
-            inv.addTrash(item);
+            inv.addTrash(key, item);
             currentRoom.getTrashList().remove(key);
             } else {
                 System.out.println("Your input is invalid.");
