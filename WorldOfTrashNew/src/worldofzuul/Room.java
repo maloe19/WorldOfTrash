@@ -23,7 +23,8 @@ public class Room
     public Room(String description) {
         this.description = description;
         exits = new HashMap<String, Room>();
-}
+        trashList = new HashMap<Trash, String>();
+    }   
     
     //Method(It is a exit to another room)
     public void setExit(String direction, Room neighbor) 
