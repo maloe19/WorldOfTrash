@@ -23,27 +23,35 @@ public class Inventory {
     
     public static int BACKCAP = 3;
 
+    public int getBACKCAP() {
+        return BACKCAP;
+    }
+
     public Inventory()
     {
         backpack = new HashMap<>();
     }
     
     public void addTrash (Trash key,String item) {
-        if(backpack.size()<BACKCAP)
-        {
-        backpack.put(key, item);  
-            System.out.println("\n"+item + " has been added to your backpack.");
-            
+            backpack.put(key, item);
+              System.out.println("\n"+item + " has been added to your backpack.");
         }
-        else {
-            System.out.println("Your backpack is full.");
-        }
-    }
     
     public void removeTrash (String trash) {
         backpack.remove(trash);
     }
-   
+    
+     public Trash getItemKey(String name){
+        Trash key = null;
+        for (Map.Entry<Trash, String> tr : backpack.entrySet()){
+        if(tr.getValue().equalsIgnoreCase(name)==false){     
+        }
+        else if (tr.getValue().equalsIgnoreCase(name)==true){
+           key = tr.getKey();
+        }}
+        return key;
+    }
+  
     
     public void printInventory (){
         Iterator it = backpack.entrySet().iterator();

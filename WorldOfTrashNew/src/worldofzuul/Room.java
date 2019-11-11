@@ -16,7 +16,8 @@ public class Room
     private ArrayList<PlasticTrash> plasticBin;
     private ArrayList<MetalTrash> metalBin;
     private ArrayList<GlassTrash> glassBin;
-    private ArrayList<CardboardTrash> CardboardBin;
+    private ArrayList<CardboardTrash> cardboardBin;
+    private ArrayList<? extends Trash> trashBins;
  
     
     //Constructors
@@ -24,6 +25,8 @@ public class Room
         this.description = description;
         exits = new HashMap<String, Room>();
         trashList = new HashMap<Trash, String>();
+        this.trashBins = trashBins;
+        
     }   
     
     //Method(It is a exit to another room)
@@ -32,9 +35,30 @@ public class Room
         exits.put(direction, neighbor);
     }
     
-    public void setBin(){
-        
+    public void setBin(ArrayList<? extends Trash> trashType){
+        trashBins.add(trashType);
     }
+    /*
+    public void setBin(MetalTrash metaltrash){
+        metalBin.add(metaltrash);
+    }
+    
+    public ArrayList<MetalTrash> getMetalBin() {
+        return metalBin;
+    }
+    
+    
+    public void getMetalBinNames() {
+        if (metalBin.isEmpty()) {
+            System.out.println("There is no metal bin!");
+        }
+        else {
+            System.out.println("\nThis is what you found");
+            for (MetalTrash mtr : metalBin);
+            System.out.println(mtr.getName());
+        }
+    }
+    */
 
     public void setTrash(Trash trash) 
     {
@@ -52,7 +76,7 @@ public class Room
        }
        else 
        {
-           System.out.println("This is what you found: ");
+           System.out.println("\nThis is what you found: ");
            for (Trash tr : trashList.keySet()){
            System.out.println(tr.getName());
        }}}
@@ -68,8 +92,6 @@ public class Room
         return key;
     }
     
-  
-    
     //Method
     public String getShortDescription()
     {
@@ -79,7 +101,7 @@ public class Room
     //Method (Longer version of previous)
     public String getLongDescription()
     {
-        return "You are " + description + ".\n" + getExitString();
+        return "\nYou are " + description + ".\n" + getExitString();
     }
 
     //Method(Multiple exits)

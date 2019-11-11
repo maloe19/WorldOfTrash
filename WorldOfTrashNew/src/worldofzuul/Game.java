@@ -91,7 +91,7 @@ public class Game
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Hope you learned something from this game. \nThank you for playing!");
+        System.out.println("\nHope you learned something from this game. \nThank you for playing!");
         System.out.println("KEEP RECYCLING!");
     }
 
@@ -109,7 +109,7 @@ public class Game
     {
         System.out.println();
         System.out.println("Welcome to the World Of Trash!\n");
-        delay(2000);
+        delay(1000);
         System.out.println("World Of Trash is a text-based \nLearning game about the enviroment!\n");
         delay(2000);
         System.out.println("The world is at the brink of extinction \nBecause of all the trash lying around\n");
@@ -120,7 +120,7 @@ public class Game
         Scanner obj = new Scanner(System.in);
         System.out.print("> ");
         String name = obj.nextLine();
-        delay(800);
+        delay(400);
         System.out.println("Hello " + name + "! good luck on your mission to save the world!");
         delay(2000);
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
@@ -160,10 +160,6 @@ public class Game
         }
         return wantToQuit;
     }
-
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
     
       public void throwTrash(Command command){
        if (!command.hasSecondWord())
@@ -175,10 +171,16 @@ public class Game
            if (currentRoom.getShortDescription().equals("in the recycling room")){
                System.out.println("Du er i recycle");
            } else {
-               System.out.println("Du er IKKE i recycle");
-           }
-       }
-      }
+               item = command.getSecondWord();
+               Trash key = inv.getItemKey(item);
+               if (inv.getBackpack().containsKey(key)){
+                   currentRoom.getTrashList().put(key, item);
+                   inv.getBackpack().remove(key);
+                   System.out.println("\nYou succesfully threw the "+item);
+               } else {
+                   System.out.println("Your input is invalid.");
+               }
+           }}}
     
       public void pickUpTrash(Command command)
     {
@@ -191,14 +193,15 @@ public class Game
             String item = command.getSecondWord();
             Trash key = currentRoom.getTrashKey(item);
             if(currentRoom.getTrashList().containsKey(key)){
+            if(inv.getBackpack().size()<inv.getBACKCAP()) {
             inv.addTrash(key, item);
             currentRoom.getTrashList().remove(key);
-            } else {
+            } else { 
+            System.out.println("Your backpack is full");
+            }} else {
                 System.out.println("Your input is invalid.");
-            }
-            
-        }
-           
+            }   
+        }    
     }
 
     //Method(for help)
