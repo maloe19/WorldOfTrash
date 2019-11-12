@@ -24,20 +24,20 @@ public class Game
     private void createRooms()
     {
         Room outside, recycle, playground, forrest, beach, street;
-        Trash bottle_g = new GlassTrash("Beer bottle");
-        Trash can_s = new MetalTrash("Can soda");
+        Trash bottle_g = new GlassTrash("Bottle");
+        Trash can_s = new MetalTrash("Soda");
         Trash straw = new PlasticTrash("Straw");
         Trash newspaper = new CardboardTrash("Newspaper");
-        Trash bulb = new GlassTrash("Light bulb");
-        Trash bag = new CardboardTrash("Paper bag");
+        Trash bulb = new GlassTrash("Bulb");
+        Trash bag = new CardboardTrash("Bag");
         Trash cardboard = new CardboardTrash("Cardboard");
-        Trash bottle_p = new PlasticTrash("Plastic bottle");
-        Trash ball = new PlasticTrash ("Deflated ball");
-        Trash juice = new CardboardTrash ("Juice box");
-        Trash can_f = new MetalTrash ("Food can");
+        Trash bottle_p = new PlasticTrash("Bottle");
+        Trash ball = new PlasticTrash ("Ball");
+        Trash juice = new CardboardTrash ("Juicebox");
+        Trash can_f = new MetalTrash ("Can");
                 
         outside = new Room("outside of your home");
-        recycle = new Room("in the recycling room");
+        recycle = new Recycle("in the recycling room");
         playground = new Room("at the playground");
         forrest = new Room("in the forrest");
         beach = new Room("at the beach");
@@ -74,7 +74,6 @@ public class Game
         
         street.setExit("south", outside);
         
-        recycle.setBin();
         
         
         currentRoom = outside;
@@ -161,18 +160,22 @@ public class Game
         return wantToQuit;
     }
     
-      public void throwTrash(Command command){
+    public void throwTrash(Command command){
        if (!command.hasSecondWord())
         {
             System.out.println("Throw what?");
         }   
-       else {
-           String item = command.getSecondWord();
-           if (currentRoom.getShortDescription().equals("in the recycling room")){
-               System.out.println("Du er i recycle");
-           } else {
+       else if (!command.hasThirdWord()){
+            String item = command.getSecondWord();
+            Trash key = inv.getItemKey(item);
+            if (currentRoom instanceof Recycle){ 
+            if(inv.getBackpack().containsKey(key)){
+            System.out.println("throw " + command.getSecondWord() + " in which bin?");
+            } else{
+                System.out.println("Your input is invalid.");
+            }} else {
                item = command.getSecondWord();
-               Trash key = inv.getItemKey(item);
+               key = inv.getItemKey(item);
                if (inv.getBackpack().containsKey(key)){
                    currentRoom.getTrashList().put(key, item);
                    inv.getBackpack().remove(key);
@@ -180,8 +183,25 @@ public class Game
                } else {
                    System.out.println("Your input is invalid.");
                }
-           }}}
+           }}
+       else if (command.hasThirdWord()){
+           String item = command.getSecondWord();
+           Trash key = inv.getItemKey(item);
+           String bin = command.getThirdWord();
+           
+           for (ArrayList t : ((Recycle)currentRoom).getTrashBins()){
+           if (t.equals(command.getThirdWord())){      //Her er probelem - Erik
+             inv.getBackpack().remove(key);
+             t.add(item);
+               System.out.println(t);
+              } else{
+               System.out.println("Detektede ingen bins");
+           }
+           }}
+        }
     
+
+
       public void pickUpTrash(Command command)
     {
         if (!command.hasSecondWord())
@@ -233,6 +253,9 @@ public class Game
         else {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
+            if (currentRoom instanceof Recycle){
+                System.out.println(((Recycle)currentRoom).getBinNames());
+            }
         }
     }
 

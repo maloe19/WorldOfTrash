@@ -35,11 +35,11 @@ public class Parser
                 word2 = tokenizer.next(); 
             }
             if(tokenizer.hasNext()) {
-                word2 = word2+" "+tokenizer.next(); 
+                word3 = tokenizer.next(); 
             }
         }
 
-        return new Command(commands.getCommandWord(word1), word2);
+        return new Command(commands.getCommandWord(word1), word2, word3);
     }
 
     //Method

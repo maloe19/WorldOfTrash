@@ -32,14 +32,18 @@ public class Command
         this.commandWord = commandWord;
         this.secondWord = secondWord;
     }
-
-   /*
+    
+    
+    public String getThirdWord() {
+        return thirdWord;
+    }
+   
    public Command(CommandWord commandWord, String secondWord, String thirdWord)
     {
         this.commandWord = commandWord;
         this.secondWord = secondWord;
-        //this.thirdWord
-    } */
+        this.thirdWord = thirdWord;
+    } 
     
     //Method
     public CommandWord getCommandWord()
@@ -63,5 +67,8 @@ public class Command
     public boolean hasSecondWord()
     {
         return (secondWord != null);
+    }
+    public boolean hasThirdWord(){
+        return (thirdWord != null);
     }
 }

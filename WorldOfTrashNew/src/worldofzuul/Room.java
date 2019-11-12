@@ -13,11 +13,7 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
     private HashMap<Trash, String> trashList;
-    private ArrayList<PlasticTrash> plasticBin;
-    private ArrayList<MetalTrash> metalBin;
-    private ArrayList<GlassTrash> glassBin;
-    private ArrayList<CardboardTrash> cardboardBin;
-    private ArrayList<? extends Trash> trashBins;
+    
  
     
     //Constructors
@@ -25,7 +21,6 @@ public class Room
         this.description = description;
         exits = new HashMap<String, Room>();
         trashList = new HashMap<Trash, String>();
-        this.trashBins = trashBins;
         
     }   
     
@@ -35,31 +30,6 @@ public class Room
         exits.put(direction, neighbor);
     }
     
-    public void setBin(ArrayList<? extends Trash> trashType){
-        trashBins.add(trashType);
-    }
-    /*
-    public void setBin(MetalTrash metaltrash){
-        metalBin.add(metaltrash);
-    }
-    
-    public ArrayList<MetalTrash> getMetalBin() {
-        return metalBin;
-    }
-    
-    
-    public void getMetalBinNames() {
-        if (metalBin.isEmpty()) {
-            System.out.println("There is no metal bin!");
-        }
-        else {
-            System.out.println("\nThis is what you found");
-            for (MetalTrash mtr : metalBin);
-            System.out.println(mtr.getName());
-        }
-    }
-    */
-
     public void setTrash(Trash trash) 
     {
         trashList.put(trash, trash.getName());
@@ -103,6 +73,8 @@ public class Room
     {
         return "\nYou are " + description + ".\n" + getExitString();
     }
+    
+    
 
     //Method(Multiple exits)
     private String getExitString()

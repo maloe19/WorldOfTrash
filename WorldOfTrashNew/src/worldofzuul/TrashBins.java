@@ -11,14 +11,12 @@ import java.util.ArrayList;
  *
  * @author Yonus Rafik
  */
-public class TrashBins<T extends Trash> {
-    private ArrayList<T> trashBins;
+public class TrashBins {
+    private ArrayList<ArrayList> trashBins;
 
-   public ArrayList<T> getTrashBins() {
+   public ArrayList<ArrayList> getTrashBins() {
      return trashBins;
    }
-    
-    
 }
 
 

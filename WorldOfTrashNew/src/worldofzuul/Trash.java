@@ -25,5 +25,6 @@ public class Trash {
     {
         return name; 
     }
+   
 }
 
