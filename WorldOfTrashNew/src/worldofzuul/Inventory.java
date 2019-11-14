@@ -15,9 +15,9 @@ import java.util.Map;
  * @author Yonus Rafik
  */
 public class Inventory {
-    private HashMap<Trash, String> backpack;
+    private ArrayList<Trash> backpack;
 
-    public HashMap<Trash, String> getBackpack() {
+    public ArrayList<Trash> getBackpack() {
         return backpack;
     }
     
@@ -29,12 +29,12 @@ public class Inventory {
 
     public Inventory()
     {
-        backpack = new HashMap<>();
+        backpack = new ArrayList<>();
     }
     
-    public void addTrash (Trash key,String item) {
-            backpack.put(key, item);
-              System.out.println("\n"+item + " has been added to your backpack.");
+    public void addTrash (Trash key) {
+            backpack.add(key);
+              System.out.println("\n"+key.getName()+ " has been added to your backpack.");
         }
     
     public void removeTrash (String trash) {
@@ -42,22 +42,21 @@ public class Inventory {
     }
     
      public Trash getItemKey(String name){
-        Trash key = null;
-        for (Map.Entry<Trash, String> tr : backpack.entrySet()){
-        if(tr.getValue().equalsIgnoreCase(name)==false){     
-        }
-        else if (tr.getValue().equalsIgnoreCase(name)==true){
-           key = tr.getKey();
-        }}
-        return key;
+         
+         Trash trash = null;
+         for(Trash tr : backpack){
+             if (tr.getName().equalsIgnoreCase(name)){
+                 trash = tr;
+             }
+         }
+         return trash;
+         
     }
   
     
     public void printInventory (){
-        Iterator it = backpack.entrySet().iterator();
-        while (it.hasNext()){
-            Map.Entry pair = (Map.Entry)it.next();
-            System.out.println(pair.getValue());
+        for(Trash tr : backpack){
+            System.out.println(tr.getName());
         }
     }
 }

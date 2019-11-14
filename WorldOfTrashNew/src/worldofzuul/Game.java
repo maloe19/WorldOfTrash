@@ -11,6 +11,7 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     Inventory inv = new Inventory();
+    Score score = new Score();
     
     
     //Constructors
@@ -38,10 +39,11 @@ public class Game
                 
         outside = new Room("outside of your home");
         recycle = new Recycle("in the recycling room");
-        playground = new Room("at the playground");
+        playground = new LockedRoom("at the playground", 75);
         forrest = new Room("in the forrest");
-        beach = new Room("at the beach");
+        beach = new LockedRoom("at the beach", 150);
         street = new Room("on the street");
+        
         
         street.setTrash(can_s);
         street.setTrash(bottle_g);
@@ -91,6 +93,7 @@ public class Game
             finished = processCommand(command);
         }
         System.out.println("\nHope you learned something from this game. \nThank you for playing!");
+        System.out.println("Your score was: " + score.getScore());
         System.out.println("KEEP RECYCLING!");
     }
 
@@ -169,15 +172,15 @@ public class Game
             String item = command.getSecondWord();
             Trash key = inv.getItemKey(item);
             if (currentRoom instanceof Recycle){ 
-            if(inv.getBackpack().containsKey(key)){
+            if(inv.getBackpack().contains(key)){
             System.out.println("throw " + command.getSecondWord() + " in which bin?");
             } else{
                 System.out.println("Your input is invalid.");
             }} else {
                item = command.getSecondWord();
                key = inv.getItemKey(item);
-               if (inv.getBackpack().containsKey(key)){
-                   currentRoom.getTrashList().put(key, item);
+               if (inv.getBackpack().contains(key)){
+                   currentRoom.getTrashList().add(key);
                    inv.getBackpack().remove(key);
                    System.out.println("\nYou succesfully threw the "+item);
                } else {
@@ -198,14 +201,13 @@ public class Game
                isValid = true;
            }}
            if (isValid){
-               System.out.println(item+" has been threwn in "+bin);
+               System.out.println(item+" has been thrown in "+bin);
                System.out.println("bin: "+((Recycle)currentRoom).getTrashBins());
            } else {
                System.out.println("Invalid bin");
            }
            }}
-       
-    
+      
 
 
       public void pickUpTrash(Command command)
@@ -218,9 +220,9 @@ public class Game
         {
             String item = command.getSecondWord();
             Trash key = currentRoom.getTrashKey(item);
-            if(currentRoom.getTrashList().containsKey(key)){
+            if(currentRoom.getTrashList().contains(key)){
             if(inv.getBackpack().size()<inv.getBACKCAP()) {
-            inv.addTrash(key, item);
+            inv.addTrash(key);
             currentRoom.getTrashList().remove(key);
             } else { 
             System.out.println("Your backpack is full");
@@ -250,20 +252,25 @@ public class Game
         }
 
         String direction = command.getSecondWord();
-
+        
         Room nextRoom = currentRoom.getExit(direction);
-
+       
+        
         if (nextRoom == null) {
             System.out.println("There is no door!");
-        }
-        else {
-            currentRoom = nextRoom;
+        } else {
+            if (nextRoom instanceof LockedRoom && score.getScore() < ((LockedRoom)nextRoom).getScorelimit()){
+                    System.out.println("This room is locked \n" + 
+                    ((LockedRoom)nextRoom).getScorelimit() + " Points needed to enter" );
+                } else {
+                currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
             if (currentRoom instanceof Recycle){
                  System.out.println("\n These are the available bins: ");
-                ((Recycle)currentRoom).printbins();
-            }
+                ((Recycle)currentRoom).printbins();    
+            }}
         }
+        
     }
 
     //Method

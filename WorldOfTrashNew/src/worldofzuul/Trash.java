@@ -15,10 +15,16 @@ import java.util.HashMap;
 
 public class Trash {
     private String name;
+    private int recyclability;
     
-    public Trash (String name)
+    public Trash (String name, int recyclability)
     {
         this.name = name;
+        this.recyclability = recyclability;
+    }
+
+    public int getRecyclability() {
+        return recyclability;
     }
     
     public String getName() 

@@ -12,7 +12,7 @@ public class Room
     //Attributes
     private String description;
     private HashMap<String, Room> exits;
-    private HashMap<Trash, String> trashList;
+    private ArrayList<Trash>trashList;
     
  
     
@@ -20,8 +20,7 @@ public class Room
     public Room(String description) {
         this.description = description;
         exits = new HashMap<String, Room>();
-        trashList = new HashMap<Trash, String>();
-        
+        trashList = new ArrayList<Trash>();
     }   
     
     //Method(It is a exit to another room)
@@ -32,14 +31,15 @@ public class Room
     
     public void setTrash(Trash trash) 
     {
-        trashList.put(trash, trash.getName());
+        trashList.add(trash);
     }
 
-     public HashMap<Trash, String> getTrashList() {
+     public ArrayList<Trash> getTrashList() {
         return trashList; 
      }
     
     public void getTrashNames(){
+        
        if(trashList.isEmpty())
        {
            System.out.println("You found nothing here!");
@@ -47,19 +47,18 @@ public class Room
        else 
        {
            System.out.println("\nThis is what you found: ");
-           for (Trash tr : trashList.keySet()){
+           for (Trash tr : trashList){
            System.out.println(tr.getName());
        }}}
     
     public Trash getTrashKey(String name){
-        Trash key = null;
-        for (Map.Entry<Trash, String> tr : trashList.entrySet()){
-        if(tr.getValue().equalsIgnoreCase(name)==false){     
+        Trash trashName = null;
+        for(Trash tr : trashList){
+            if (tr.getName().equalsIgnoreCase(name)){
+            trashName = tr;
+            }  
         }
-        else if (tr.getValue().equalsIgnoreCase(name)==true){
-           key = tr.getKey();
-        }}
-        return key;
+        return trashName;
     }
     
     //Method

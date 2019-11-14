@@ -12,6 +12,6 @@ import java.util.ArrayList;
 public class GlassTrash extends Trash {
     
     public GlassTrash (String name) {
-        super(name);
+        super(name, 40);
     }
 }

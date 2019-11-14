@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class MetalTrash extends Trash {
     
     public MetalTrash (String name) {
-        super(name);
+        super(name, 50);
     }
     
 }
