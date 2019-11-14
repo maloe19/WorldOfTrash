@@ -12,6 +12,7 @@ import java.util.List;
  *
  * @author Yonus Rafik
  */
+// Attributes for each of the trashbins.
 public class Recycle extends Room {
     private ExtendedArrayList<PlasticTrash> plasticBin;
     private ExtendedArrayList<MetalTrash> metalBin;
@@ -19,7 +20,7 @@ public class Recycle extends Room {
     private ExtendedArrayList<CardboardTrash> cardboardBin;
     private ArrayList<ExtendedArrayList> trashBins;
     
-
+    // Constructors - making the different trashbin objects and giving them names and adding them to the overall trashbin class
     public Recycle(String description) {
         super(description);
         trashBins = new ArrayList<ExtendedArrayList>();
@@ -40,11 +41,11 @@ public class Recycle extends Room {
         metalBin.setType("Metal-bin");
         trashBins.add(metalBin);
     }
-    
+    // Method - returns trashBins
     public ArrayList<ExtendedArrayList> getTrashBins() {
         return trashBins;
     }
-    
+    // Method - printing out the names of the trashbins inside the recycling room
     public void printbins(){
         for(ExtendedArrayList t : trashBins){
             System.out.println(" "+t.getType());

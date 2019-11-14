@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class CommandWords
 {
-    //Attributes (HashMap)
+    //HashMap for valid commands
     private HashMap<String, CommandWord> validCommands;
 
     //Constructor
@@ -12,7 +12,7 @@ public class CommandWords
     {
         //Makes a new Object called validCommands
         validCommands = new HashMap<String, CommandWord>();
-        //For each loop
+        //Adds valid commands to Hashmap
         for(CommandWord command : CommandWord.values()) {
             if(command != CommandWord.UNKNOWN) {
                 validCommands.put(command.toString(), command);
@@ -20,7 +20,7 @@ public class CommandWords
         }
     }
 
-    //Method
+    //Method: returns commandWord based on if valid or not 
     public CommandWord getCommandWord(String commandWord)
     {
         CommandWord command = validCommands.get(commandWord);
@@ -32,13 +32,13 @@ public class CommandWords
         }
     }
     
-    //Method(Checks whether aString is included in the HashMap)
+    //Method: Checks whether a string is valid or not (known or unknown)
     public boolean isCommand(String aString)
     {
         return validCommands.containsKey(aString);
     }
 
-    //Method(Prints out every valid commands)
+    //Method - Prints out every valid command
     public void showAll() 
     {
         for(String command : validCommands.keySet()) {

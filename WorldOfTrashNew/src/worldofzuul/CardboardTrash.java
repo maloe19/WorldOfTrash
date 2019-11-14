@@ -10,8 +10,9 @@ import java.util.ArrayList;
  * @author Yonus Rafik
  */
 public class CardboardTrash extends Trash {
-    
+    // Constructor for Cardboard Trash
     public CardboardTrash (String name) {
-        super(name, 30);
+    // Defining name and score value of cardboard type
+        super(name, 30);                       
     }
 }

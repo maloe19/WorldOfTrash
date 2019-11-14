@@ -14,19 +14,21 @@ import java.util.HashMap;
  */
 
 public class Trash {
+    // attributes for the name with the type of String, and a recyclability with the type of int.
     private String name;
     private int recyclability;
     
+    // Constructor - assigning name and recyclability to itself
     public Trash (String name, int recyclability)
     {
         this.name = name;
         this.recyclability = recyclability;
     }
-
+    // Method - returning recyclability, represented as score value.
     public int getRecyclability() {
         return recyclability;
     }
-    
+    // Method - returning the name value
     public String getName() 
     {
         return name; 

@@ -8,20 +8,21 @@ import java.util.logging.Logger;
 
 public class Game 
 {
+    //2 attributes and 2 objects 
     private Parser parser;
     private Room currentRoom;
     Inventory inv = new Inventory();
     Score score = new Score();
     
     
-    //Constructors
+    //Constructor that sets up the game (parser, rooms, trash etc.)
     public Game() 
     {
         createRooms();
         parser = new Parser();
     }
 
-    //Method
+    //Method: creates every element that is default in the game
     private void createRooms()
     {
         Room outside, recycle, playground, forrest, beach, street;
@@ -81,7 +82,7 @@ public class Game
         currentRoom = outside;
     }
 
-    //Method
+    //Method: controls whether the game is running or not - Supplies with needed text when game ended/started
     public void play() 
     {            
         printWelcome();
@@ -97,6 +98,7 @@ public class Game
         System.out.println("KEEP RECYCLING!");
     }
 
+    //Delay in milsec for the intro
     private synchronized void delay(long milsec){
         try {
             wait(milsec);
@@ -106,7 +108,7 @@ public class Game
         
     }
     
-    //Method(intro)
+    //Method - intro
     private void printWelcome()
     {
         System.out.println();
@@ -130,7 +132,7 @@ public class Game
         System.out.println(currentRoom.getLongDescription());
     }
 
-    //Method(Proccessing the commands)
+    //Method - Proccessing the commands from input
     private boolean processCommand(Command command) 
     {
         boolean wantToQuit = false;
@@ -163,6 +165,7 @@ public class Game
         return wantToQuit;
     }
     
+    //Method for throwing trash from backpack, into every possible scenario
     public void throwTrash(Command command){
        if (!command.hasSecondWord())
         {
@@ -200,7 +203,7 @@ public class Game
                inv.printInventory();
                isValid = true;
            }}
-           if (isValid){
+           if (isValid == true){
                System.out.println(item+" has been thrown in "+bin);
                System.out.println("bin: "+((Recycle)currentRoom).getTrashBins());
            } else {
@@ -209,7 +212,7 @@ public class Game
            }}
       
 
-
+      //Method for adding trash to backpack, from every possible scenario
       public void pickUpTrash(Command command)
     {
         if (!command.hasSecondWord())
@@ -232,7 +235,7 @@ public class Game
         }    
     }
 
-    //Method(for help)
+    //Method - For commandword help
     private void printHelp() 
     {
         System.out.println("In a world of extinction, you seek guidance");
@@ -243,7 +246,7 @@ public class Game
         
     }
 
-    //Method
+    //Method: For entering a room - Checks if there is a room, and if the needed points are achieved
     private void goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
@@ -259,12 +262,14 @@ public class Game
         if (nextRoom == null) {
             System.out.println("There is no door!");
         } else {
+            //Checks whether the door has point-lock or not
             if (nextRoom instanceof LockedRoom && score.getScore() < ((LockedRoom)nextRoom).getScorelimit()){
                     System.out.println("This room is locked \n" + 
                     ((LockedRoom)nextRoom).getScorelimit() + " Points needed to enter" );
                 } else {
                 currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
+            //Printing bins when entering recycling-room
             if (currentRoom instanceof Recycle){
                  System.out.println("\n These are the available bins: ");
                 ((Recycle)currentRoom).printbins();    
@@ -273,7 +278,7 @@ public class Game
         
     }
 
-    //Method
+    //Method: Checks whether the player want to quit
     private boolean quit(Command command) 
     {
         if(command.hasSecondWord()) {

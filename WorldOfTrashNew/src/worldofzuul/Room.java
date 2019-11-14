@@ -9,14 +9,14 @@ import java.util.Map;
 
 public class Room 
 {
-    //Attributes
+    //Attributes for description, exits and trashlist.
     private String description;
     private HashMap<String, Room> exits;
     private ArrayList<Trash>trashList;
     
  
     
-    //Constructors
+    //Constructors assigning description to itself and making new objects for exits and trashlist
     public Room(String description) {
         this.description = description;
         exits = new HashMap<String, Room>();
@@ -28,16 +28,16 @@ public class Room
     {
         exits.put(direction, neighbor);
     }
-    
+    // Method - so that we can add trash to each room
     public void setTrash(Trash trash) 
     {
         trashList.add(trash);
     }
-
+    // Method - so that we can get trashlist for each room.
      public ArrayList<Trash> getTrashList() {
         return trashList; 
      }
-    
+    // method - a getter method so we can get the names of the trash that we make. 
     public void getTrashNames(){
         
        if(trashList.isEmpty())
@@ -50,7 +50,7 @@ public class Room
            for (Trash tr : trashList){
            System.out.println(tr.getName());
        }}}
-    
+    // Method - a getter method that return the trash element based on the name input.
     public Trash getTrashKey(String name){
         Trash trashName = null;
         for(Trash tr : trashList){
@@ -61,13 +61,13 @@ public class Room
         return trashName;
     }
     
-    //Method
+    //Method - returns the short description
     public String getShortDescription()
     {
         return description;
     }
 
-    //Method (Longer version of previous)
+    //Method (- return a longer version of the description
     public String getLongDescription()
     {
         return "\nYou are " + description + ".\n" + getExitString();
@@ -75,7 +75,7 @@ public class Room
     
     
 
-    //Method(Multiple exits)
+    //Method - a getter method that shows the available exits when entering a new room
     private String getExitString()
     {
         String returnString = "Exits:";
@@ -86,7 +86,7 @@ public class Room
         return returnString;
     }
 
-    //Method(Exits to the direction)
+    //Method - exiting to the next room. 
     public Room getExit(String direction) 
     {
         return exits.get(direction);
