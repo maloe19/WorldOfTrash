@@ -188,17 +188,23 @@ public class Game
            String item = command.getSecondWord();
            Trash key = inv.getItemKey(item);
            String bin = command.getThirdWord();
+           boolean isValid = false;
            
-           for (ArrayList t : ((Recycle)currentRoom).getTrashBins()){
-           if (t.equals(command.getThirdWord())){      //Her er probelem - Erik
+           for (ExtendedArrayList t : ((Recycle)currentRoom).getTrashBins()){
+           if (command.getThirdWord().equalsIgnoreCase(t.getType())){
+             t.add(key);
              inv.getBackpack().remove(key);
-             t.add(item);
-               System.out.println(t);
-              } else{
-               System.out.println("Detektede ingen bins");
+               inv.printInventory();
+               isValid = true;
+           }}
+           if (isValid){
+               System.out.println(item+" has been threwn in "+bin);
+               System.out.println("bin: "+((Recycle)currentRoom).getTrashBins());
+           } else {
+               System.out.println("Invalid bin");
            }
            }}
-        }
+       
     
 
 
@@ -254,7 +260,8 @@ public class Game
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
             if (currentRoom instanceof Recycle){
-                System.out.println(((Recycle)currentRoom).getBinNames());
+                 System.out.println("\n These are the available bins: ");
+                ((Recycle)currentRoom).printbins();
             }
         }
     }
