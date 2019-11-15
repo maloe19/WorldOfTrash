@@ -14,5 +14,6 @@ public class PlasticTrash extends Trash {
     // Constructor - defining plasticTrash and assigning it a score value 
     public PlasticTrash (String name) {
         super(name, 40);
+        this.setBinType("Plastic-bin");
     }
 }

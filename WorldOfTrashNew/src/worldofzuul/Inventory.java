@@ -37,8 +37,11 @@ public class Inventory {
               System.out.println("\n"+key.getName()+ " has been added to your backpack.");
         }
     
-    public void removeTrash (String trash) {
+    public void removeTrash (Trash trash) {
         backpack.remove(trash);
+        for (Trash trashlist : backpack) {
+            System.out.println(trashlist.getName());
+        }
     }
     
      public Trash getItemKey(String name){
@@ -58,5 +61,5 @@ public class Inventory {
         for(Trash tr : backpack){
             System.out.println(tr.getName());
         }
-    }
+    }       
 }

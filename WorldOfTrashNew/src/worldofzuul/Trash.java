@@ -17,6 +17,7 @@ public class Trash {
     // attributes for the name with the type of String, and a recyclability with the type of int.
     private String name;
     private int recyclability;
+    private String binType;
     
     // Constructor - assigning name and recyclability to itself
     public Trash (String name, int recyclability)
@@ -33,6 +34,23 @@ public class Trash {
     {
         return name; 
     }
+
+    public String getBinType() {
+        return binType;
+    }
+
+    public void setBinType(String binType) {
+        this.binType = binType;
+    }
+
+    
+    
+    @Override
+    public String toString() {
+        return  getClass().getName()+ " name=" + name;
+    }
+    
+    
    
 }
 

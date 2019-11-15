@@ -10,10 +10,11 @@ import java.util.ArrayList;
 /**
  *
  * @author Yonus Rafik
+ * @param <E>
  */
 
     //Class created to add the possibility to give each ArrayList a type it can recieve
-public class ExtendedArrayList<E> extends ArrayList<Trash> {
+public class ExtendedArrayList<E> extends ArrayList<E> {
     //Attribute for arraylist
     private String type;
     
