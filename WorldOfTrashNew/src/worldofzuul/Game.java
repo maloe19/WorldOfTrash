@@ -32,14 +32,14 @@ public class Game {
     private void createRooms() {
         Room outside, recycle, playground, forrest, beach, street;
 
-        Trash bottle_g = new GlassTrash("Bottle");
+        Trash jar = new GlassTrash("Jar");
         Trash can_s = new MetalTrash("Soda");
         Trash straw = new PlasticTrash("Straw");
         Trash newspaper = new CardboardTrash("Newspaper");
         Trash bulb = new GlassTrash("Bulb");
         Trash bag = new CardboardTrash("Bag");
         Trash cardboard = new CardboardTrash("Cardboard");
-        Trash bottle_p = new PlasticTrash("Bottle");
+        Trash bottle = new PlasticTrash("Bottle");
         Trash ball = new PlasticTrash("Ball");
         Trash juice = new CardboardTrash("Juicebox");
         Trash can_f = new MetalTrash("Can");
@@ -52,7 +52,7 @@ public class Game {
         street = new Room("on the street");
 
         street.setTrash(can_s);
-        street.setTrash(bottle_g);
+        street.setTrash(jar);
         street.setTrash(newspaper);
 
         playground.setTrash(juice);
@@ -64,7 +64,7 @@ public class Game {
 
         beach.setTrash(straw);
         beach.setTrash(cardboard);
-        beach.setTrash(bottle_p);
+        beach.setTrash(bottle);
 
         outside.setExit("east", recycle);
         outside.setExit("south", forrest);
