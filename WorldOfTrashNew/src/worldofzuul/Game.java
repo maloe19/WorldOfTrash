@@ -90,13 +90,16 @@ public class Game {
     //Method: controls whether the game is running or not - Supplies with needed text when game ended/started
     public void play() {
         printWelcome();
-        
+
         boolean finished = false;
         boolean isCompleted = false;
         while (!finished && !isCompleted) {
-            isCompleted = gameIsCompleted();
             Command command = parser.getCommand();
             finished = processCommand(command);
+            isCompleted = gameIsCompleted();
+        }
+        if (isCompleted) {
+            System.out.println("\n- !!! Congratiolations !!! - \nYou saved the world by recycling!\n");
         }
         System.out.println("\nHope you learned something from this game. \nThank you for playing!");
         System.out.println("Your score was: " + score.getScore());
@@ -297,7 +300,7 @@ public class Game {
     }
 
     public boolean gameIsCompleted() {
-        for (Room r : roomList ) {
+        for (Room r : roomList) {
             if (!r.getTrashList().isEmpty()) {
                 return false;
             }
