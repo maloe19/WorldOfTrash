@@ -39,9 +39,6 @@ public class Inventory {
     
     public void removeTrash (Trash trash) {
         backpack.remove(trash);
-        for (Trash trashlist : backpack) {
-            System.out.println(trashlist.getName());
-        }
     }
     
      public Trash getItemKey(String name){
@@ -56,7 +53,6 @@ public class Inventory {
          
     }
   
-    
     public void printInventory (){
         for(Trash tr : backpack){
             System.out.println(tr.getName());

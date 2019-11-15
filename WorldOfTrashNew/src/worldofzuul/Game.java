@@ -132,7 +132,7 @@ public class Game {
         System.out.print("> ");
         String name = obj.nextLine();
         delay(400);
-        System.out.println("Hello " + name + "! good luck on your mission to save the world!");
+        System.out.println("\nHello " + name + "! good luck on your mission to save the world!");
         delay(2000);
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();

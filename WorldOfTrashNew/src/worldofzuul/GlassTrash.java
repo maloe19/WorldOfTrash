@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 package worldofzuul;
-import java.util.ArrayList;
+
 /**
  *
  * @author Yonus Rafik
  */
 public class GlassTrash extends Trash {
-    
-    public GlassTrash (String name) {
+
+    public GlassTrash(String name) {
         super(name, 40);
         this.setBinType("glass-bin");
     }

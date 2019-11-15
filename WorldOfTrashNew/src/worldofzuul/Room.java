@@ -67,7 +67,7 @@ public class Room
         return description;
     }
 
-    //Method (- return a longer version of the description
+    //Method - return a longer version of the description
     public String getLongDescription()
     {
         return "\nYou are " + description + ".\n" + getExitString();
