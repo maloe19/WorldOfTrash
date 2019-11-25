@@ -168,32 +168,24 @@ public class Game {
 
     //Method for throwing trash from backpack, into every possible scenario
     public void throwTrash(Command command) {
+        String item = command.getSecondWord();
+        Trash key = inv.getItemKey(item);
+        String bin = command.getThirdWord();
+
         if (!command.hasSecondWord()) {
             System.out.println("Throw what?");
         } else if (!command.hasThirdWord()) {
-            String item = command.getSecondWord();
-            Trash key = inv.getItemKey(item);
-            if (currentRoom instanceof Recycle) {
-                if (inv.getBackpack().contains(key)) {
-                    System.out.println("throw " + command.getSecondWord() + " in which bin?");
-                } else {
-                    System.out.println("Your input is invalid.");
-                }
+            if (!inv.getBackpack().contains(key)) {
+                System.out.println("Your input is invalid");
+            } else if (currentRoom instanceof Recycle) {
+                System.out.println("throw " + command.getSecondWord() + " in which bin?");
             } else {
-                item = command.getSecondWord();
-                key = inv.getItemKey(item);
-                if (inv.getBackpack().contains(key)) {
-                    currentRoom.getTrashList().add(key);
-                    inv.removeTrash(key);
-                    System.out.println("\nYou succesfully threw the " + item);
-                } else {
-                    System.out.println("Your input is invalid.");
-                }
+                currentRoom.getTrashList().add(key);
+                inv.removeTrash(key);
+                System.out.println("\nYou succesfully threw the " + item);
             }
-        } else if (command.hasThirdWord()) {
-            String item = command.getSecondWord();
-            Trash key = inv.getItemKey(item);
-            String bin = command.getThirdWord();
+
+        } else if (command.hasThirdWord() && currentRoom instanceof Recycle) {
             boolean isValid = false;
             boolean incorrectBin = false;
 
@@ -225,6 +217,8 @@ public class Game {
                 System.out.println("Invalid input");
 
             }
+        } else {
+            System.out.println("Invalid input");
         }
     }
 
