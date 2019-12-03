@@ -11,8 +11,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.scene.control.Button;
+
 /**
  * FXML Controller class
  *
@@ -20,15 +20,15 @@ import javafx.scene.control.Button;
  */
 public class OutsideController implements Initializable {
 
-
-    @FXML
-    private Button WestOutside;
     @FXML
     private Button north1;
+    @FXML
+    private Button WestOutside;
     @FXML
     private Button south2;
     @FXML
     private Button east1;
+
     /**
      * Initializes the controller class.
      */
@@ -36,7 +36,7 @@ public class OutsideController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+
     @FXML
     private void northToStreet(ActionEvent event) throws IOException {
         App.setRoot("street");
@@ -56,4 +56,5 @@ public class OutsideController implements Initializable {
     private void eastToRecycle(ActionEvent event) throws IOException {
         App.setRoot("recycle");
     }
+    
 }

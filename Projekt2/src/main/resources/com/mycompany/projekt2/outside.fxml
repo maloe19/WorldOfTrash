@@ -4,31 +4,33 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projekt2.OutsideController">
-   <left>
-      <Button fx:id="WestOutside" mnemonicParsing="false" onAction="#westToPlayground" text="West" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets left="10.0" />
-         </BorderPane.margin></Button>
-   </left>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projekt2.OutsideController">
    <top>
-      <Button fx:id="north1" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#northToStreet" text="North" BorderPane.alignment="CENTER">
+      <Button fx:id="north1" mnemonicParsing="false" onAction="#northToStreet" text="North" BorderPane.alignment="TOP_CENTER">
          <BorderPane.margin>
             <Insets top="10.0" />
-         </BorderPane.margin></Button>
-   </top>
-   <bottom>
-      <Button fx:id="south2" mnemonicParsing="false" onAction="#southToForrest" text="South" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="10.0" />
          </BorderPane.margin>
       </Button>
-   </bottom>
+   </top>
    <right>
-      <Button fx:id="east1" mnemonicParsing="false" onAction="#eastToRecycle" text="East" BorderPane.alignment="CENTER">
+      <Button fx:id="east1" mnemonicParsing="false" onAction="#eastToRecycle" text="East" BorderPane.alignment="CENTER_RIGHT">
          <BorderPane.margin>
             <Insets right="10.0" />
          </BorderPane.margin>
       </Button>
    </right>
+   <bottom>
+      <Button fx:id="south2" mnemonicParsing="false" onAction="#southToForrest" text="South" BorderPane.alignment="BOTTOM_CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <left>
+      <Button fx:id="WestOutside" mnemonicParsing="false" onAction="#westToPlayground" text="West" BorderPane.alignment="CENTER_LEFT">
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </left>
 </BorderPane>

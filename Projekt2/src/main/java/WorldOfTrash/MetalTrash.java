@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.projekt2;
-
+package WorldOfTrash;
 /**
  *
- * @author Bruger
+ * @author Yonus Rafik
  */
-public class Main {
-    public static void main(String[] args) {
-        App.load(args);   
-        
+public class MetalTrash extends Trash {
+    
+    public MetalTrash (String name) {
+        super(name, 50);
+        this.setBinType("Metal-bin");
     }
+    
 }
