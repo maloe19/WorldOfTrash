@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WorldOfTrash;
+package com.mycompany.projekt2;
 
 import com.mycompany.projekt2.Game;
 
@@ -17,8 +17,7 @@ public class MainGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Game g = new Game();
-        g.play();
+        
     }
     
 }

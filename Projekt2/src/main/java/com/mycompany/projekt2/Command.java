@@ -1,6 +1,6 @@
 
 
-package WorldOfTrash;
+package com.mycompany.projekt2;
 
 public class Command
 {

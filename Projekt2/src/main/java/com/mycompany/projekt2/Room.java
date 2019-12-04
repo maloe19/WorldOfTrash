@@ -1,4 +1,4 @@
-package WorldOfTrash;
+package com.mycompany.projekt2;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -10,9 +10,9 @@ import java.util.Map;
 public class Room 
 {
     //Attributes for description, exits and trashlist.
-    private String description;
-    private HashMap<String, Room> exits;
-    private ArrayList<Trash>trashList;
+    public String description;
+    public HashMap<String, Room> exits;
+    public ArrayList<Trash>trashList;
     
  
     

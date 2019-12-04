@@ -1,4 +1,4 @@
-package WorldOfTrash;
+package com.mycompany.projekt2;
 
 import java.util.HashMap;
 

@@ -7,6 +7,7 @@ package com.mycompany.projekt2;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,7 +20,6 @@ import javafx.scene.control.Button;
  * @author Bruger
  */
 public class OutsideController implements Initializable {
-
     @FXML
     private Button north1;
     @FXML
@@ -28,7 +28,16 @@ public class OutsideController implements Initializable {
     private Button south2;
     @FXML
     private Button east1;
-
+    @FXML
+    public Parser parser;
+    //@FXML
+    //public Game g = new Game();
+    @FXML
+    public Room currentRoom;
+    @FXML
+    public ArrayList<Room> roomList = new ArrayList<>();
+@FXML
+    public static Game g = new Game();
     /**
      * Initializes the controller class.
      */
@@ -38,7 +47,8 @@ public class OutsideController implements Initializable {
     }    
 
     @FXML
-    private void northToStreet(ActionEvent event) throws IOException {
+    private static void northToStreet(ActionEvent event) throws IOException {
+        g.processCommand(g.parser.getCommand("go", "north", " "));
         App.setRoot("street");
     }
 

@@ -20,7 +20,8 @@ import javafx.scene.control.Button;
  */
 public class MainmenuController implements Initializable {
 
-
+    @FXML
+    public static Game g = new Game();
     @FXML
     private Button Play;
     /**
@@ -33,10 +34,11 @@ public class MainmenuController implements Initializable {
     
     @FXML
     private void startGame(ActionEvent event) throws IOException {
-        Game g = new Game();
+        //Game g = new Game();
         g.play();
-        
+        g.createRooms();
         App.setRoot("outside");
+        
     }
 
 }

@@ -1,19 +1,5 @@
 package com.mycompany.projekt2;
 
-import WorldOfTrash.CardboardTrash;
-import WorldOfTrash.Command;
-import WorldOfTrash.CommandWord;
-import WorldOfTrash.ExtendedArrayList;
-import WorldOfTrash.GlassTrash;
-import WorldOfTrash.Inventory;
-import WorldOfTrash.LockedRoom;
-import WorldOfTrash.MetalTrash;
-import WorldOfTrash.Parser;
-import WorldOfTrash.PlasticTrash;
-import WorldOfTrash.Recycle;
-import WorldOfTrash.Room;
-import WorldOfTrash.Score;
-import WorldOfTrash.Trash;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -24,12 +10,12 @@ import static javafx.application.Application.launch;
 public class Game {
 
     //3 attributes and 2 objects 
-    private Parser parser;
-    private Room currentRoom;
-    private ArrayList<Room> roomList;
+    public Parser parser;
+    public Room currentRoom;
+    public ArrayList<Room> roomList;
     Inventory inv = new Inventory();
     Score score = new Score();
-
+   
     //Constructor that sets up the game (parser, rooms, trash etc.)
     public Game() {
         roomList = new ArrayList();
@@ -37,14 +23,14 @@ public class Game {
         parser = new Parser();
     }
 
-    private void addAll(Room... rooms) {
+    public void addAll(Room... rooms) {
         for (Room room : rooms) {
             roomList.add(room);
         }
     }
 
     //Method: creates every element that is default in the game
-    private void createRooms() {
+    public void createRooms() {
         Room outside, recycle, playground, forrest, beach, street;
 
         Trash jar = new GlassTrash("Jar");
@@ -108,21 +94,24 @@ public class Game {
 
         boolean finished = false;
         boolean isCompleted = false;
-        while (!finished && !isCompleted) {
+        /*while (!finished && !isCompleted) {
             Command command = parser.getCommand();
             finished = processCommand(command);
             isCompleted = gameIsCompleted();
         }
+
         if (isCompleted) {
             System.out.println("\n- !!! Congratiolations !!! - \nYou saved the world by recycling!\n");
         }
         System.out.println("\nHope you learned something from this game. \nThank you for playing!");
         System.out.println("Your score was: " + score.getScore());
         System.out.println("KEEP RECYCLING!");
-    }
+        */
+    } 
+   
 
     //Delay in milsec for the intro
-    private synchronized void delay(long milsec) {
+    public synchronized void delay(long milsec) {
         try {
             wait(milsec);
         } catch (InterruptedException ex) {
@@ -132,7 +121,7 @@ public class Game {
     }
 
     //Method - intro
-    private void printWelcome() {
+    public void printWelcome() {
         System.out.println();
         System.out.println("Welcome to the World Of Trash!\n");
         delay(1000);
@@ -155,7 +144,7 @@ public class Game {
     }
 
     //Method - Proccessing the commands from input
-    private boolean processCommand(Command command) {
+    public boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
         CommandWord commandWord = command.getCommandWord();
@@ -258,7 +247,7 @@ public class Game {
     }
 
     //Method - For commandword help
-    private void printHelp() {
+    public void printHelp() {
         System.out.println("In a world of extinction, you seek guidance");
         System.out.println("relying on the power of these commands");
         System.out.println();
@@ -268,7 +257,7 @@ public class Game {
     }
 
     //Method: For entering a room - Checks if there is a room, and if the needed points are achieved
-    private void goRoom(Command command) {
+    public void goRoom(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Go where?");
             return;
@@ -299,7 +288,7 @@ public class Game {
     }
 
     //Method: Checks whether the player want to quit
-    private boolean quit(Command command) {
+    public boolean quit(Command command) {
         if (command.hasSecondWord()) {
             System.out.println("Quit what?");
             return false;
