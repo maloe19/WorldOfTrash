@@ -253,7 +253,7 @@ public class Game {
     }
 
     //Method: For entering a room - Checks if there is a room, and if the needed points are achieved
-    private void goRoom(Command command) {
+    public void goRoom(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Go where?");
             return;

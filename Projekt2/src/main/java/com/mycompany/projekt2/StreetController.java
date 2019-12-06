@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 /**
  * FXML Controller class
  *
@@ -22,7 +23,9 @@ public class StreetController implements Initializable {
 
 
     @FXML
-    private Button South1;
+    private TextArea txtbox;
+    @FXML
+    private Button but;
     /**
      * Initializes the controller class.
      */
@@ -31,9 +34,13 @@ public class StreetController implements Initializable {
         // TODO
     }    
     
-    @FXML
     private void southToOutside(ActionEvent event) throws IOException {
         App.setRoot("outside");
+    }
+
+    @FXML
+    private void butHandler(ActionEvent event) {
+        txtbox.appendText("Klikket ");
     }
 
 }

@@ -157,7 +157,7 @@ public class Game {
         if (commandWord == CommandWord.HELP) {
             printHelp();
         } else if (commandWord == CommandWord.GO) {
-            goRoom(command);
+            //goRoom(command);
         } else if (commandWord == CommandWord.SEARCH) {
             currentRoom.getTrashNames();
         } else if (commandWord == CommandWord.PICKUP) {
@@ -256,8 +256,13 @@ public class Game {
 
     }
 
+    public void goRoom(String direction) {
+        Room nextRoom = App.g.currentRoom.getExit(direction);
+        App.g.currentRoom = nextRoom;
+        System.out.println(App.g.currentRoom.getLongDescription());
+    }
     //Method: For entering a room - Checks if there is a room, and if the needed points are achieved
-    public void goRoom(Command command) {
+    /*public void goRoom(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Go where?");
             return;
@@ -286,7 +291,7 @@ public class Game {
         }
 
     }
-
+*/
     //Method: Checks whether the player want to quit
     public boolean quit(Command command) {
         if (command.hasSecondWord()) {

@@ -31,6 +31,10 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
+    public static Game g = new Game();
+    
+    
+    
     public static void load(String[] args) {
         launch();
     }

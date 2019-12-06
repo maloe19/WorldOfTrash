@@ -5,23 +5,22 @@
  */
 package com.mycompany.projekt2;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 /**
  * FXML Controller class
  *
  * @author Bruger
  */
-public class MainmenuController implements Initializable {
+public class StreetController implements Initializable {
+
 
     @FXML
-    private Button Play;
+    private TextArea txtbox;
     /**
      * Initializes the controller class.
      */
@@ -30,12 +29,4 @@ public class MainmenuController implements Initializable {
         // TODO
     }    
     
-    @FXML
-    private void startGame(ActionEvent event) throws IOException {
-        App.g.play();
-        App.g.createRooms();
-        App.setRoot("outside");
-        
-    }
-
 }
