@@ -41,4 +41,5 @@
             </plugin>
         </plugins>
     </build>
+    <name>Projekt2.1</name>
 </project>

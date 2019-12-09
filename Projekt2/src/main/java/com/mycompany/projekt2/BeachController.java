@@ -34,7 +34,6 @@ public class BeachController implements Initializable {
     @FXML
     private void westToForrest(ActionEvent event) throws IOException {
         App.g.goRoom("west");
-        App.setRoot("forrest");
     }
 
 }

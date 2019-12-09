@@ -30,9 +30,6 @@ public class OutsideController implements Initializable {
     private Button STF;
     @FXML
     private Button NTS;
-    public Parser parser;
-    public Room currentRoom;
-    public ArrayList<Room> roomList = new ArrayList<>();
     /**
      * Initializes the controller class.
      */
@@ -44,25 +41,21 @@ public class OutsideController implements Initializable {
     @FXML
     private void westToPlayground(ActionEvent event) throws IOException {
         App.g.goRoom("west");
-        App.setRoot("playground");
     }
 
     @FXML
     private void eastToRecycle(ActionEvent event) throws IOException {
         App.g.goRoom("east");
-        App.setRoot("recycle");
     }
 
     @FXML
     private void southToForrest(ActionEvent event) throws IOException {
         App.g.goRoom("south");
-        App.setRoot("forrest");
     }
 
     @FXML
     private void northToStreet(ActionEvent event) throws IOException {
         App.g.goRoom("north");
-        App.setRoot("street");
     }
 
 }

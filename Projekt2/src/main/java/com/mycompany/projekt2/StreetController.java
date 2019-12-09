@@ -34,10 +34,7 @@ public class StreetController implements Initializable {
     
     @FXML
     private void southToOutside(ActionEvent event) throws IOException {
-        App.setRoot("outside");
+        App.g.goRoom("south");
     }
-    /*@FXML
-    private void butHandler(ActionEvent event) {
-        txtbox.appendText("Klikket");
-*/
+    
 }

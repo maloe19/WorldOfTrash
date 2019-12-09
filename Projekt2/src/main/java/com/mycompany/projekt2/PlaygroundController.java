@@ -34,7 +34,6 @@ public class PlaygroundController implements Initializable {
     @FXML
     private void eastToOutside(ActionEvent event) throws IOException {
         App.g.goRoom("east");
-        App.setRoot("outside");
     }
 
 }

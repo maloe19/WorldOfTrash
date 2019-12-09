@@ -34,7 +34,6 @@ public class RecycleController implements Initializable {
     @FXML
     private void westToOutside(ActionEvent event) throws IOException {
         App.g.goRoom("west");
-        App.setRoot("outside");
     }
 
 }

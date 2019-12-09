@@ -22,8 +22,8 @@ public class Recycle extends Room {
     private ArrayList<ExtendedArrayList> trashBins;
     
     // Constructors - making the different trashbin objects and giving them names and adding them to the overall trashbin class
-    public Recycle(String description) {
-        super(description);
+    public Recycle(String description, String name) {
+        super(description, name);
         trashBins = new ArrayList<ExtendedArrayList>();
         
         plasticBin = new ExtendedArrayList<PlasticTrash>();

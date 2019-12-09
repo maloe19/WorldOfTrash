@@ -36,13 +36,11 @@ public class ForrestController implements Initializable {
     @FXML
     private void northToOutside(ActionEvent event) throws IOException {
         App.g.goRoom("north");
-        App.setRoot("outside");
     }
 
     @FXML
     private void eastToBeach(ActionEvent event) throws IOException {
         App.g.goRoom("east");
-        App.setRoot("beach");
     }
 
 }

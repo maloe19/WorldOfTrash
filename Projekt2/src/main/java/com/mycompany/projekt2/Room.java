@@ -13,14 +13,16 @@ public class Room
     public String description;
     public HashMap<String, Room> exits;
     public ArrayList<Trash>trashList;
+    public String name;
     
  
     
     //Constructors assigning description to itself and making new objects for exits and trashlist
-    public Room(String description) {
+    public Room(String description, String name) {
         this.description = description;
         exits = new HashMap<String, Room>();
         trashList = new ArrayList<Trash>();
+        this.name = name;
     }   
     
     //Method(It is a exit to another room)
@@ -72,7 +74,10 @@ public class Room
     {
         return "\nYou are " + description + ".\n" + getExitString();
     }
-    
+
+    public String getName() {
+        return name;
+    }
     
 
     //Method - a getter method that shows the available exits when entering a new room

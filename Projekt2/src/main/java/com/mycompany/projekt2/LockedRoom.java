@@ -14,8 +14,8 @@ import com.mycompany.projekt2.Room;
 public class LockedRoom extends Room{
     private int scorelimit;
     
-    public LockedRoom(String description, int scoreLimit) {
-        super(description);
+    public LockedRoom(String description, String name, int scoreLimit) {
+        super(description, name);
         this.scorelimit = scoreLimit;
     }
 

@@ -1,5 +1,6 @@
 package com.mycompany.projekt2;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -45,12 +46,12 @@ public class Game {
         Trash juice = new CardboardTrash("Juicebox");
         Trash can_f = new MetalTrash("Can");
 
-        outside = new Room("outside of your home");
-        recycle = new Recycle("in the recycling room");
-        playground = new LockedRoom("at the playground", 75);
-        forrest = new Room("in the forrest");
-        beach = new LockedRoom("at the beach", 150);
-        street = new Room("on the street");
+        outside = new Room("outside of your home", "outside");
+        recycle = new Recycle("in the recycling room", "recycle");
+        playground = new LockedRoom("at the playground", "playground", 75);
+        forrest = new Room("in the forrest", "forrest");
+        beach = new LockedRoom("at the beach", "beach", 150);
+        street = new Room("on the street", "street");
 
         street.setTrash(can_s);
         street.setTrash(jar);
@@ -256,11 +257,17 @@ public class Game {
 
     }
 
-    public void goRoom(String direction) {
+    public void goRoom(String direction) throws IOException {
         Room nextRoom = App.g.currentRoom.getExit(direction);
+        
+        if (nextRoom instanceof LockedRoom && App.g.score.getScore() < ((LockedRoom) nextRoom).getScorelimit()) {
+                System.out.println("This room is locked \n"
+                        + ((LockedRoom) nextRoom).getScorelimit() + " Points needed to enter");
+            } else {
         App.g.currentRoom = nextRoom;
+        App.setRoot(App.g.currentRoom.getName());
         System.out.println(App.g.currentRoom.getLongDescription());
-    }
+    }}
     //Method: For entering a room - Checks if there is a room, and if the needed points are achieved
     /*public void goRoom(Command command) {
         if (!command.hasSecondWord()) {
