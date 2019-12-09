@@ -13,6 +13,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 /**
  * FXML Controller class
  *
@@ -24,6 +27,10 @@ public class StreetController implements Initializable {
 
     @FXML
     private Button STO;
+    @FXML
+    private ImageView newspaper;
+    @FXML
+    private Label newspaper1;
     /**
      * Initializes the controller class.
      */
@@ -35,6 +42,16 @@ public class StreetController implements Initializable {
     @FXML
     private void southToOutside(ActionEvent event) throws IOException {
         App.g.goRoom("south");
+    }
+
+    private void pickUpNewspaper(ActionEvent event) throws IOException {
+        System.out.println("Newspaper clicked");
+    //App.g.pickUpTrash("newspaper");
+    }
+
+    @FXML
+    private void pickUpNewspaper(MouseEvent event) throws IOException {
+    System.out.println("Newspaper clicked");
     }
     
 }

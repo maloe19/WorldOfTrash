@@ -22,6 +22,9 @@ public class MainmenuController implements Initializable {
 
     @FXML
     private Button Play;
+   
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -35,7 +38,6 @@ public class MainmenuController implements Initializable {
         App.g.play();
         App.g.createRooms();
         App.setRoot("outside");
-        
     }
 
 }

@@ -14,7 +14,7 @@ public class Game {
     public Parser parser;
     public Room currentRoom;
     public ArrayList<Room> roomList;
-    Inventory inv = new Inventory();
+    Inventory inv;
     Score score = new Score();
    
     //Constructor that sets up the game (parser, rooms, trash etc.)
@@ -22,6 +22,7 @@ public class Game {
         roomList = new ArrayList();
         createRooms();
         parser = new Parser();
+        Inventory inv = new Inventory();
     }
 
     public void addAll(Room... rooms) {
@@ -162,7 +163,7 @@ public class Game {
         } else if (commandWord == CommandWord.SEARCH) {
             currentRoom.getTrashNames();
         } else if (commandWord == CommandWord.PICKUP) {
-            pickUpTrash(command);
+           // pickUpTrash(command);
         } else if (commandWord == CommandWord.THROW) {
             throwTrash(command);
         } else if (commandWord == CommandWord.QUIT) {
@@ -227,8 +228,14 @@ public class Game {
         }
     }
 
+    public void pickUpTrash(String trash) {
+        Trash key = App.g.currentRoom.getTrashKey(trash);
+        App.g.inv.addTrash(key);
+        System.out.println("inventory: ");
+        App.g.inv.printInventory();
+    }
     //Method for adding trash to backpack, from every possible scenario
-    public void pickUpTrash(Command command) {
+    /*public void pickUpTrash(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Pick up what?");
         } else {
@@ -245,7 +252,7 @@ public class Game {
                 System.out.println("Your input is invalid.");
             }
         }
-    }
+    }*/
 
     //Method - For commandword help
     public void printHelp() {

@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 /**
  * FXML Controller class
  *
@@ -30,6 +31,7 @@ public class OutsideController implements Initializable {
     private Button STF;
     @FXML
     private Button NTS;
+    
     /**
      * Initializes the controller class.
      */
@@ -57,5 +59,6 @@ public class OutsideController implements Initializable {
     private void northToStreet(ActionEvent event) throws IOException {
         App.g.goRoom("north");
     }
+
 
 }
