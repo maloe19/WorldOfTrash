@@ -22,7 +22,7 @@ public class BeachController implements Initializable {
 
 
     @FXML
-    private Button West3;
+    private Button WTF;
     /**
      * Initializes the controller class.
      */
@@ -33,6 +33,7 @@ public class BeachController implements Initializable {
     
     @FXML
     private void westToForrest(ActionEvent event) throws IOException {
+        App.g.goRoom("west");
         App.setRoot("forrest");
     }
 

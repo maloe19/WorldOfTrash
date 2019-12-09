@@ -22,7 +22,7 @@ public class PlaygroundController implements Initializable {
 
 
     @FXML
-    private Button playgroundEast;
+    private Button ETO;
     /**
      * Initializes the controller class.
      */
@@ -33,6 +33,7 @@ public class PlaygroundController implements Initializable {
     
     @FXML
     private void eastToOutside(ActionEvent event) throws IOException {
+        App.g.goRoom("east");
         App.setRoot("outside");
     }
 

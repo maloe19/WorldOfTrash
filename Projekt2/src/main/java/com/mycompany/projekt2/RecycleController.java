@@ -22,7 +22,7 @@ public class RecycleController implements Initializable {
 
 
     @FXML
-    private Button WestOutside;
+    private Button WTO;
     /**
      * Initializes the controller class.
      */
@@ -32,7 +32,8 @@ public class RecycleController implements Initializable {
     }    
     
     @FXML
-    private void westToOutside(ActionEvent event) throws IOException{
+    private void westToOutside(ActionEvent event) throws IOException {
+        App.g.goRoom("west");
         App.setRoot("outside");
     }
 

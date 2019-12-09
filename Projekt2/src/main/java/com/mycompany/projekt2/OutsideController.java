@@ -12,25 +12,25 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 
+import javafx.scene.control.Button;
 /**
  * FXML Controller class
  *
  * @author Bruger
  */
 public class OutsideController implements Initializable {
+
+
     @FXML
-    private Button north1;
+    private Button WTP;
     @FXML
-    private Button WestOutside;
+    private Button ETR;
     @FXML
-    private Button south2;
+    private Button STF;
     @FXML
-    private Button east1;
+    private Button NTS;
     public Parser parser;
-    //@FXML
-    //public Game g = new Game();
     public Room currentRoom;
     public ArrayList<Room> roomList = new ArrayList<>();
     /**
@@ -40,27 +40,29 @@ public class OutsideController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void northToStreet(ActionEvent event) throws IOException {
-        App.g.goRoom("north");
-       //App.g.goRoom(App.g.parser.getCommand("go", "north", " "));
-        App.setRoot("street");
-    }
-
+    
     @FXML
     private void westToPlayground(ActionEvent event) throws IOException {
+        App.g.goRoom("west");
         App.setRoot("playground");
     }
 
     @FXML
+    private void eastToRecycle(ActionEvent event) throws IOException {
+        App.g.goRoom("east");
+        App.setRoot("recycle");
+    }
+
+    @FXML
     private void southToForrest(ActionEvent event) throws IOException {
+        App.g.goRoom("south");
         App.setRoot("forrest");
     }
 
     @FXML
-    private void eastToRecycle(ActionEvent event) throws IOException {
-        App.setRoot("recycle");
+    private void northToStreet(ActionEvent event) throws IOException {
+        App.g.goRoom("north");
+        App.setRoot("street");
     }
-    
+
 }

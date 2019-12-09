@@ -8,7 +8,6 @@ package com.mycompany.projekt2;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,9 +22,9 @@ public class ForrestController implements Initializable {
 
 
     @FXML
-    private Button north2;
+    private Button NTO;
     @FXML
-    private Button WestOutside;
+    private Button ETB;
     /**
      * Initializes the controller class.
      */
@@ -36,11 +35,13 @@ public class ForrestController implements Initializable {
     
     @FXML
     private void northToOutside(ActionEvent event) throws IOException {
+        App.g.goRoom("north");
         App.setRoot("outside");
     }
 
     @FXML
-    private void westToPlayground(ActionEvent event) throws IOException {
+    private void eastToBeach(ActionEvent event) throws IOException {
+        App.g.goRoom("east");
         App.setRoot("beach");
     }
 
