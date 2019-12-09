@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 /**
  * FXML Controller class
  *
@@ -23,6 +25,14 @@ public class RecycleController implements Initializable {
 
     @FXML
     private Button WTO;
+    @FXML
+    private Label plastic;
+    @FXML
+    private Label metal;
+    @FXML
+    private Label cardboard;
+    @FXML
+    private Label glass;
     /**
      * Initializes the controller class.
      */
@@ -34,6 +44,26 @@ public class RecycleController implements Initializable {
     @FXML
     private void westToOutside(ActionEvent event) throws IOException {
         App.g.goRoom("west");
+    }
+
+    @FXML
+    private void plasticthrown(MouseEvent event) {
+        System.out.println("plastic clicked");
+    }
+
+    @FXML
+    private void metalthrown(MouseEvent event) {
+    System.out.println("metal clicked");
+    }
+
+    @FXML
+    private void cardboardthrown(MouseEvent event) {
+    System.out.println("cardboard clicked");
+    }
+
+    @FXML
+    private void glassthrown(MouseEvent event) {
+    System.out.println("glass clicked");
     }
 
 }
