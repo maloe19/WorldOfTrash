@@ -28,9 +28,11 @@ public class StreetController implements Initializable {
     @FXML
     private Button STO;
     @FXML
-    private ImageView newspaper;
-    @FXML
     private Label newspaper1;
+    @FXML
+    private Label jar1;
+    @FXML
+    private Label sodacan;
     /**
      * Initializes the controller class.
      */
@@ -51,7 +53,20 @@ public class StreetController implements Initializable {
 
     @FXML
     private void pickUpNewspaper(MouseEvent event) throws IOException {
+    //App.g.pickUpTrash("Newspaper");
     System.out.println("Newspaper clicked");
+    }
+
+    @FXML
+    private void pickUpJar(MouseEvent event) {
+    //App.g.pickUpTrash("jar");
+    System.out.println("Jar clicked");
+    }
+
+    @FXML
+    private void pickUpSodaCan(MouseEvent event) {
+    //App.g.pickUpTrash("soda");
+    System.out.println("Soda clicked");
     }
     
 }

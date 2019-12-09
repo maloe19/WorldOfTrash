@@ -14,16 +14,29 @@
          </image>
       </ImageView>
       <Button fx:id="STO" layoutX="274.0" layoutY="361.0" mnemonicParsing="false" onAction="#southToOutside" text="South" />
-      <ImageView fx:id="newspaper" fitHeight="45.0" fitWidth="136.0" layoutX="86.0" layoutY="129.0" onMousePressed="#pickUpNewspaper" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@newspaper.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="newspaper1" layoutX="455.0" layoutY="57.0" onMouseClicked="#pickUpNewspaper" onMousePressed="#pickUpNewspaper">
+      <Label fx:id="newspaper1" layoutX="375.0" layoutY="22.0" onMouseClicked="#pickUpNewspaper" prefHeight="0.0" prefWidth="19.0">
          <graphic>
-            <ImageView fitHeight="51.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@newspaper.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Label fx:id="jar1" layoutX="202.0" layoutY="129.0" onMouseClicked="#pickUpJar" prefHeight="25.0" prefWidth="20.0" rotate="-28.2">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@jar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Label fx:id="sodacan" layoutX="365.0" layoutY="274.0" onMouseClicked="#pickUpSodaCan" prefHeight="34.0" prefWidth="11.0" rotate="30.1">
+         <graphic>
+            <ImageView fitHeight="49.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@sodacan.png" />
                </image>
             </ImageView>
          </graphic>

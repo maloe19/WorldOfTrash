@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 /**
  * FXML Controller class
  *
@@ -23,6 +25,12 @@ public class BeachController implements Initializable {
 
     @FXML
     private Button WTF;
+    @FXML
+    private Label straw;
+    @FXML
+    private Label cardboard;
+    @FXML
+    private Label bottle;
     /**
      * Initializes the controller class.
      */
@@ -34,6 +42,21 @@ public class BeachController implements Initializable {
     @FXML
     private void westToForrest(ActionEvent event) throws IOException {
         App.g.goRoom("west");
+    }
+
+    @FXML
+    private void pickUpStraw(MouseEvent event) {
+        System.out.println("Straw clicked");
+    }
+
+    @FXML
+    private void pickUpCardboard(MouseEvent event) {
+    System.out.println("Cardboard clicked");
+    }
+
+    @FXML
+    private void pickUpbottle(MouseEvent event) {
+        System.out.println("Bottle clicked");
     }
 
 }

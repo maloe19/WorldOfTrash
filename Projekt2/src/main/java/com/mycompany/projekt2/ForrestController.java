@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 /**
  * FXML Controller class
  *
@@ -25,6 +27,10 @@ public class ForrestController implements Initializable {
     private Button NTO;
     @FXML
     private Button ETB;
+    @FXML
+    private Label bulb;
+    @FXML
+    private Label can;
     /**
      * Initializes the controller class.
      */
@@ -41,6 +47,16 @@ public class ForrestController implements Initializable {
     @FXML
     private void eastToBeach(ActionEvent event) throws IOException {
         App.g.goRoom("east");
+    }
+
+    @FXML
+    private void pickUpBulb(MouseEvent event) {
+        System.out.println("Bulb clicked");
+    }
+
+    @FXML
+    private void pickUpCan(MouseEvent event) {
+    System.out.println("Can clicked");
     }
 
 }
