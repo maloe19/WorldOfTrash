@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
@@ -33,12 +34,14 @@ public class RecycleController implements Initializable {
     private Label cardboard;
     @FXML
     private Label glass;
+    @FXML
+    private AnchorPane ancPane;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        ancPane.getChildren().add(App.getConsole());
     }    
     
     @FXML

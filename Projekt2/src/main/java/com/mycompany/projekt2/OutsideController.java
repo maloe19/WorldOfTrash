@@ -5,6 +5,7 @@
  */
 package com.mycompany.projekt2;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -15,14 +16,18 @@ import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import static javafx.scene.input.KeyCode.C;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 /**
  * FXML Controller class
  *
  * @author Bruger
  */
 public class OutsideController implements Initializable {
-
-
+   
     @FXML
     private Button WTP;
     @FXML
@@ -31,18 +36,32 @@ public class OutsideController implements Initializable {
     private Button STF;
     @FXML
     private Button NTS;
+    //@FXML
+    //private ImageView backgroundImage;
     
+        
+    //Image beach;
+    @FXML
+    private Pane pane;
+    @FXML
+    private AnchorPane ancPane;
+        
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        ancPane.getChildren().add(App.getConsole());
+        App.getConsole().appendText("Test 123\n");
+        //beach = new Image(new File(".\\src\\main\\resources\\com\\mycompany\\projekt2\\Beach.PNG")
+        //.toURI().toString()); 
     }    
     
     @FXML
     private void westToPlayground(ActionEvent event) throws IOException {
-        App.g.goRoom("west");
+    //backgroundImage.setImage(beach);
+    App.g.goRoom("west");
     }
 
     @FXML

@@ -51,6 +51,7 @@ public class ForrestController implements Initializable {
 
     @FXML
     private void pickUpBulb(MouseEvent event) {
+        App.g.pickUpTrash("Bulb");
         System.out.println("Bulb clicked");
     }
 

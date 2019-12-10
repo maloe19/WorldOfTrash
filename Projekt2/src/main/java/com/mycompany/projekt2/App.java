@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.control.TextArea;
 
 /**
  * JavaFX App
@@ -14,12 +15,18 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    private static TextArea console;
 
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("mainmenu"), 640, 480);
         stage.setScene(scene);
         stage.show();
+        console = new TextArea();
+    }
+    
+    public static TextArea getConsole() {
+        return console;
     }
 
     static void setRoot(String fxml) throws IOException {

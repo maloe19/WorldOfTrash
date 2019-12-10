@@ -33,6 +33,7 @@ public class Inventory {
     }
     
     public void addTrash (Trash key) {
+            System.out.println("AddTrash-Metoden");  
             backpack.add(key);
               System.out.println("\n"+key.getName()+ " has been added to your backpack.");
         }

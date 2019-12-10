@@ -5,43 +5,39 @@
  */
 package com.mycompany.projekt2;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 /**
  * FXML Controller class
  *
- * @author Bruger
+ * @author Yonus Rafik
  */
-public class MainmenuController implements Initializable {
-
+public class MaintesterController implements Initializable {
+    
+    Image outside = new Image("@Outside.png", true);
+    
     @FXML
-    private Button Play;
-   
-    
-    
+    private ImageView background;
+    @FXML
+    private Button outsideKnap;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        System.out.println(new File(".").getAbsolutePath());
     }    
-    
-    @FXML
-    private void startGame(ActionEvent event) throws IOException {
-        
-        App.g.play();
-        App.g.createRooms();
-        App.setRoot("outside");
-    }
 
+    @FXML
+    private void setBackground(ActionEvent event) throws IOException {
+        background.setImage(outside);
+    }
+    
 }

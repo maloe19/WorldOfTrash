@@ -45,9 +45,4 @@ public class Trash {
         this.binType = binType;
     }
 
-    @Override
-    public String toString() {
-        return getClass().getName() + " name=" + name;
-    }
-
 }

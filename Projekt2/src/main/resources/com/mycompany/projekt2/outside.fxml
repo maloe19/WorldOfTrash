@@ -3,18 +3,28 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projekt2.OutsideController">
-   <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Outside.PNG" />
-         </image>
-      </ImageView>
-      <Button fx:id="WTP" layoutX="14.0" layoutY="225.0" mnemonicParsing="false" onAction="#westToPlayground" text="West" />
-      <Button fx:id="ETR" layoutX="534.0" layoutY="225.0" mnemonicParsing="false" onAction="#eastToRecycle" text="East" />
-      <Button fx:id="STF" layoutX="198.0" layoutY="313.0" mnemonicParsing="false" onAction="#southToForrest" text="South" />
-      <Button fx:id="NTS" layoutX="196.0" layoutY="14.0" mnemonicParsing="false" onAction="#northToStreet" text="North" />
-   </children>
-</Pane>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projekt2.OutsideController">
+   <center>
+      <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ImageView fx:id="backgroundImage" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Outside.PNG" />
+               </image>
+            </ImageView>
+            <Button fx:id="WTP" layoutX="14.0" layoutY="225.0" mnemonicParsing="false" onAction="#westToPlayground" text="West" />
+            <Button fx:id="ETR" layoutX="534.0" layoutY="225.0" mnemonicParsing="false" onAction="#eastToRecycle" text="East" />
+            <Button fx:id="STF" layoutX="198.0" layoutY="313.0" mnemonicParsing="false" onAction="#southToForrest" text="South" />
+            <Button fx:id="NTS" layoutX="196.0" layoutY="14.0" mnemonicParsing="false" onAction="#northToStreet" text="North" />
+         </children>
+      </Pane>
+   </center>
+   <bottom>
+      <AnchorPane fx:id="ancPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

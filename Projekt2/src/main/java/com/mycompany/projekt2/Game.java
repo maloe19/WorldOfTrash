@@ -12,7 +12,7 @@ public class Game {
 
     //3 attributes and 2 objects 
     public Parser parser;
-    public Room currentRoom;
+    private Room currentRoom;
     public ArrayList<Room> roomList;
     Inventory inv;
     Score score = new Score();
@@ -22,7 +22,7 @@ public class Game {
         roomList = new ArrayList();
         createRooms();
         parser = new Parser();
-        Inventory inv = new Inventory();
+        inv = new Inventory();
     }
 
     public void addAll(Room... rooms) {
@@ -126,7 +126,7 @@ public class Game {
     public void printWelcome() {
         System.out.println();
         System.out.println("Welcome to the World Of Trash!\n");
-        delay(1000);
+       /* delay(1000);
         System.out.println("World Of Trash is a text-based \nLearning game about the enviroment!\n");
         delay(2000);
         System.out.println("The world is at the brink of extinction \nBecause of all the trash lying around\n");
@@ -143,7 +143,7 @@ public class Game {
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
-    }
+    */}
 
     //Method - Proccessing the commands from input
     public boolean processCommand(Command command) {
@@ -323,5 +323,13 @@ public class Game {
             }
         }
         return inv.getBackpack().isEmpty();
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
     }
 }

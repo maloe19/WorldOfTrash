@@ -4,51 +4,61 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projekt2.RecycleController">
-   <children>
-      <ImageView fitHeight="362.0" fitWidth="600.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Recycling.PNG" />
-         </image>
-      </ImageView>
-      <Button fx:id="WTO" layoutX="14.0" layoutY="188.0" mnemonicParsing="false" onAction="#westToOutside" text="West" />
-      <Label fx:id="plastic" layoutX="364.0" layoutY="130.0" onMouseClicked="#plasticthrown" prefHeight="25.0" prefWidth="20.0">
-         <graphic>
-            <ImageView fitHeight="74.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projekt2.RecycleController">
+   <center>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="362.0" fitWidth="600.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@plasticbin.png" />
+                  <Image url="@Recycling.PNG" />
                </image>
             </ImageView>
-         </graphic>
-      </Label>
-      <Label fx:id="metal" layoutX="414.0" layoutY="133.0" onMouseClicked="#metalthrown" prefHeight="53.0" prefWidth="43.0">
-         <graphic>
-            <ImageView fitHeight="78.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@metalbin.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Label>
-      <Label fx:id="cardboard" layoutX="466.0" layoutY="132.0" onMouseClicked="#cardboardthrown" prefHeight="25.0" prefWidth="20.0">
-         <graphic>
-            <ImageView fitHeight="75.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@cardboardbin.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Label>
-      <Label fx:id="glass" layoutX="528.0" layoutY="131.0" onMouseClicked="#glassthrown" prefHeight="62.0" prefWidth="43.0">
-         <graphic>
-            <ImageView fitHeight="75.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@glassbin.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Label>
-   </children>
-</Pane>
+            <Button fx:id="WTO" layoutX="14.0" layoutY="188.0" mnemonicParsing="false" onAction="#westToOutside" text="West" />
+            <Label fx:id="plastic" layoutX="364.0" layoutY="130.0" onMouseClicked="#plasticthrown" prefHeight="25.0" prefWidth="20.0">
+               <graphic>
+                  <ImageView fitHeight="74.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@plasticbin.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="metal" layoutX="414.0" layoutY="133.0" onMouseClicked="#metalthrown" prefHeight="53.0" prefWidth="43.0">
+               <graphic>
+                  <ImageView fitHeight="78.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@metalbin.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="cardboard" layoutX="466.0" layoutY="132.0" onMouseClicked="#cardboardthrown" prefHeight="25.0" prefWidth="20.0">
+               <graphic>
+                  <ImageView fitHeight="75.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@cardboardbin.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="glass" layoutX="528.0" layoutY="131.0" onMouseClicked="#glassthrown" prefHeight="62.0" prefWidth="43.0">
+               <graphic>
+                  <ImageView fitHeight="75.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@glassbin.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </children>
+      </Pane>
+   </center>
+   <bottom>
+      <AnchorPane fx:id="ancPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
