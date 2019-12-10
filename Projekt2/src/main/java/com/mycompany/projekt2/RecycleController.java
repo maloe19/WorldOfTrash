@@ -36,7 +36,7 @@ public class RecycleController implements Initializable {
     @FXML
     private Label glass;
     @FXML
-    private TextArea ancPane;
+    private AnchorPane ancPane;
     /**
      * Initializes the controller class.
      */

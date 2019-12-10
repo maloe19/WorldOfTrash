@@ -49,17 +49,17 @@ public class PlaygroundController implements Initializable {
 
     @FXML
     private void pickUpJuice(MouseEvent event) {
-        System.out.println("Juice clicked");
+        App.g.pickUpTrash("Juice");
     }
 
     @FXML
     private void pickUpBall(MouseEvent event) {
-    System.out.println("Ball clicked");
+    App.g.pickUpTrash("Ball");
     }
 
     @FXML
     private void pickUpBag(MouseEvent event) {
-    System.out.println("Bag clicked");
+    App.g.pickUpTrash("Bag");
     }
 
 }

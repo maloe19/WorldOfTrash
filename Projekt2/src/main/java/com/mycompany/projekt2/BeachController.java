@@ -19,19 +19,19 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
- * @author Bruger
+ * @author Yonus Rafik
  */
 public class BeachController implements Initializable {
 
 
+    @FXML
+    private Label bottle;
     @FXML
     private Button WTF;
     @FXML
     private Label straw;
     @FXML
     private Label cardboard;
-    @FXML
-    private Label bottle;
     @FXML
     private AnchorPane ancPane;
     /**
@@ -43,23 +43,23 @@ public class BeachController implements Initializable {
     }    
     
     @FXML
+    private void pickUpbottle(MouseEvent event) {
+        App.g.pickUpTrash("Bottle");
+    }
+
+    @FXML
     private void westToForrest(ActionEvent event) throws IOException {
         App.g.goRoom("west");
     }
 
     @FXML
     private void pickUpStraw(MouseEvent event) {
-        System.out.println("Straw clicked");
+        App.g.pickUpTrash("Straw");
     }
 
     @FXML
     private void pickUpCardboard(MouseEvent event) {
-        System.out.println("Cardboard clicked");
-    }
-
-    @FXML
-    private void pickUpbottle(MouseEvent event) {
-        System.out.println("Bottle clicked");
+        App.g.pickUpTrash("Cardboard");
     }
 
 }

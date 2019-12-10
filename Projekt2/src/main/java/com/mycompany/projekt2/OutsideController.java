@@ -44,7 +44,7 @@ public class OutsideController implements Initializable {
     @FXML
     private Pane pane;
     @FXML
-    private TextArea ancPane;
+    private AnchorPane ancPane;
     @FXML
     private ImageView backgroundImage;
         
@@ -53,16 +53,14 @@ public class OutsideController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
         ancPane.getChildren().add(App.getConsole());
         App.getConsole().appendText("Test 123\n");
-        //beach = new Image(new File(".\\src\\main\\resources\\com\\mycompany\\projekt2\\Beach.PNG")
-        //.toURI().toString()); 
+
     }    
     
     @FXML
     private void westToPlayground(ActionEvent event) throws IOException {
-    //backgroundImage.setImage(beach);
     App.g.goRoom("west");
     }
 

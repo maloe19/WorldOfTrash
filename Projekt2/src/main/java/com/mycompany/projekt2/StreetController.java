@@ -50,26 +50,22 @@ public class StreetController implements Initializable {
     }
 
     private void pickUpNewspaper(ActionEvent event) throws IOException {
-        System.out.println("Newspaper clicked");
-    //App.g.pickUpTrash("newspaper");
+        App.g.pickUpTrash("Newspaper");
     }
 
     @FXML
     private void pickUpNewspaper(MouseEvent event) throws IOException {
-    //App.g.pickUpTrash("Newspaper");
-    System.out.println("Newspaper clicked");
+        App.g.pickUpTrash("Newspaper");
     }
 
     @FXML
     private void pickUpJar(MouseEvent event) {
-    //App.g.pickUpTrash("jar");
-    System.out.println("Jar clicked");
+        App.g.pickUpTrash("Jar");
     }
 
     @FXML
     private void pickUpSodaCan(MouseEvent event) {
-    //App.g.pickUpTrash("soda");
-    System.out.println("Soda clicked");
+        App.g.pickUpTrash("Soda");
     }
     
 }

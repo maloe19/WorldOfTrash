@@ -49,9 +49,9 @@ public class Game {
 
         outside = new Room("outside of your home", "outside");
         recycle = new Recycle("in the recycling room", "recycle");
-        playground = new LockedRoom("at the playground", "playground", 75);
+        playground = new LockedRoom("at the playground", "playground", 0);
         forrest = new Room("in the forrest", "forrest");
-        beach = new LockedRoom("at the beach", "beach", 150);
+        beach = new LockedRoom("at the beach", "beach",0);
         street = new Room("on the street", "street");
 
         street.setTrash(can_s);

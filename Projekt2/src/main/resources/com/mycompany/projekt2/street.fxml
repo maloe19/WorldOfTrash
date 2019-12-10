@@ -10,52 +10,61 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<SplitPane dividerPositions="0.665016501650165" orientation="VERTICAL" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projekt2.StreetController">
+<SplitPane dividerPositions="0.7996031746031746" orientation="VERTICAL" prefHeight="458.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projekt2.StreetController">
    <items>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0">
          <children>
-            <ImageView fitHeight="453.0" fitWidth="600.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="430.0" fitWidth="613.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Slide1.PNG" />
                </image>
             </ImageView>
-            <BorderPane layoutX="274.0" layoutY="361.0">
+            <BorderPane layoutX="274.0" layoutY="361.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <center>
                   <Pane>
                      <children>
-                        <Label fx:id="newspaper1" onMouseClicked="#pickUpNewspaper" prefHeight="0.0" prefWidth="19.0" />
+                        <Label fx:id="newspaper1" layoutX="226.0" layoutY="271.0" onMouseClicked="#pickUpNewspaper" prefHeight="0.0" prefWidth="19.0">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@newspaper.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Label>
+                        <Label fx:id="sodacan" layoutX="338.0" layoutY="158.0" onMouseClicked="#pickUpSodaCan" prefHeight="34.0" prefWidth="11.0">
+                           <graphic>
+                              <ImageView fitHeight="49.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@sodacan.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <Label fx:id="jar1" layoutX="14.0" layoutY="99.0" onMouseClicked="#pickUpJar" prefHeight="25.0" prefWidth="20.0">
+                           <graphic>
+                              <ImageView fitHeight="35.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@jar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
                      </children>
                   </Pane>
                </center>
+               <bottom>
+                  <Button fx:id="STO" mnemonicParsing="false" onAction="#southToOutside" text="South" BorderPane.alignment="CENTER" />
+               </bottom>
             </BorderPane>
-            <ImageView fitHeight="49.0" fitWidth="41.0" layoutX="492.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@sodacan.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="sodacan" layoutX="371.0" layoutY="168.0" onMouseClicked="#pickUpSodaCan" prefHeight="34.0" prefWidth="11.0" />
-            <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="497.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@jar.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="jar1" layoutX="437.0" layoutY="118.0" onMouseClicked="#pickUpJar" prefHeight="25.0" prefWidth="20.0" />
-            <ImageView fitHeight="24.0" fitWidth="51.0" layoutX="434.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@newspaper.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="STO" layoutX="260.0" layoutY="304.0" mnemonicParsing="false" onAction="#southToOutside" text="South" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="47.0" prefWidth="600.0">
          <children>
-            <SplitPane dividerPositions="0.5117056856187291" prefHeight="98.0" prefWidth="600.0">
+            <SplitPane dividerPositions="0.5117056856187291" prefHeight="98.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <TextArea fx:id="ancPane" prefHeight="96.0" prefWidth="303.0" />
+                        <TextArea fx:id="ancPane" prefHeight="98.0" prefWidth="303.3333333333333" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
