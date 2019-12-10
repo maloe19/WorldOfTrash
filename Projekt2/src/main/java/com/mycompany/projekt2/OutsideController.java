@@ -44,7 +44,9 @@ public class OutsideController implements Initializable {
     @FXML
     private Pane pane;
     @FXML
-    private AnchorPane ancPane;
+    private TextArea ancPane;
+    @FXML
+    private ImageView backgroundImage;
         
     /**
      * Initializes the controller class.

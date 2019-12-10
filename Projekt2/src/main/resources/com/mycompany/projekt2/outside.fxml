@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -8,23 +11,63 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projekt2.OutsideController">
-   <center>
-      <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+<SplitPane dividerPositions="0.6833756345177664" orientation="VERTICAL" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projekt2.OutsideController">
+   <items>
+      <AnchorPane>
          <children>
-            <ImageView fx:id="backgroundImage" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="backgroundImage" fitHeight="356.0" fitWidth="621.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Outside.PNG" />
                </image>
             </ImageView>
-            <Button fx:id="WTP" layoutX="14.0" layoutY="225.0" mnemonicParsing="false" onAction="#westToPlayground" text="West" />
-            <Button fx:id="ETR" layoutX="534.0" layoutY="225.0" mnemonicParsing="false" onAction="#eastToRecycle" text="East" />
-            <Button fx:id="STF" layoutX="198.0" layoutY="313.0" mnemonicParsing="false" onAction="#southToForrest" text="South" />
-            <Button fx:id="NTS" layoutX="196.0" layoutY="14.0" mnemonicParsing="false" onAction="#northToStreet" text="North" />
+            <BorderPane>
+               <center>
+                  <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="520.0" />
+               </center>
+               <right>
+                  <Button fx:id="ETR" mnemonicParsing="false" onAction="#eastToRecycle" text="East" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets right="10.0" />
+                     </BorderPane.margin>
+                  </Button>
+               </right>
+               <top>
+                  <Button fx:id="NTS" mnemonicParsing="false" onAction="#northToStreet" text="North" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets top="10.0" />
+                     </BorderPane.margin>
+                  </Button>
+               </top>
+               <left>
+                  <Button fx:id="WTP" mnemonicParsing="false" onAction="#westToPlayground" text="West" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets left="10.0" />
+                     </BorderPane.margin>
+                  </Button>
+               </left>
+               <bottom>
+                  <Button fx:id="STF" mnemonicParsing="false" onAction="#southToForrest" text="South" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" />
+                     </BorderPane.margin>
+                  </Button>
+               </bottom>
+            </BorderPane>
          </children>
-      </Pane>
-   </center>
-   <bottom>
-      <AnchorPane fx:id="ancPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </bottom>
-</BorderPane>
+      </AnchorPane>
+      <AnchorPane prefHeight="141.0" prefWidth="621.0">
+         <children>
+            <SplitPane dividerPositions="0.5" prefHeight="163.0" prefWidth="600.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <TextArea fx:id="ancPane" prefHeight="200.0" prefWidth="295.0" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>

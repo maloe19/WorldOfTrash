@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 /**
  * FXML Controller class
@@ -31,6 +32,8 @@ public class PlaygroundController implements Initializable {
     private Label ball;
     @FXML
     private Label bag;
+    @FXML
+    private TextArea ancPane;
     /**
      * Initializes the controller class.
      */
