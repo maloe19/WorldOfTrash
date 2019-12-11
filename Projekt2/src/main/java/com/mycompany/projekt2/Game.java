@@ -233,6 +233,7 @@ public class Game {
         App.g.inv.addTrash(key);
         System.out.println("inventory: ");
         App.g.inv.printInventory();
+        App.getConsole().appendText("you picked up the " + trash + "\n");
     }
     //Method for adding trash to backpack, from every possible scenario
     /*public void pickUpTrash(Command command) {

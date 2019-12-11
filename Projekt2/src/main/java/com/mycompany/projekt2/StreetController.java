@@ -37,12 +37,15 @@ public class StreetController implements Initializable {
     private Label sodacan;
     @FXML
     private AnchorPane ancPane;
+    @FXML
+    private AnchorPane scoreBox;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        ancPane.getChildren().add(App.getConsole());
+       scoreBox.getChildren().add(App.getScoreLabel());
        App.getConsole().appendText("you are on the street \n");
 
     }    
@@ -60,19 +63,20 @@ public class StreetController implements Initializable {
     @FXML
     private void pickUpNewspaper(MouseEvent event) throws IOException {
         App.g.pickUpTrash("Newspaper");
-        App.getConsole().appendText("you picked up the Newspaper \n");
+        App.g.score.scorePositive(10);
+        
     }
 
     @FXML
     private void pickUpJar(MouseEvent event) {
         App.g.pickUpTrash("Jar");
-        App.getConsole().appendText("you picked up the Jar \n");
+       
     }
 
     @FXML
     private void pickUpSodaCan(MouseEvent event) {
         App.g.pickUpTrash("Soda");
-        App.getConsole().appendText("you picked up the Soda Can \n");
+        
     }
     
 }

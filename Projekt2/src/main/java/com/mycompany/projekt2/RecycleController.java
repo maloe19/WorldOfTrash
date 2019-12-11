@@ -37,12 +37,15 @@ public class RecycleController implements Initializable {
     private Label glass;
     @FXML
     private AnchorPane ancPane;
+    @FXML
+    private AnchorPane scoreBox;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
+        scoreBox.getChildren().add(App.getScoreLabel());
         App.getConsole().appendText("you are in the recycling room \n");
 
     }    

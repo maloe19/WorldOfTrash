@@ -35,12 +35,15 @@ public class PlaygroundController implements Initializable {
     private Label bag;
     @FXML
     private AnchorPane ancPane;
+    @FXML
+    private AnchorPane scoreBox;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        ancPane.getChildren().add(App.getConsole());
+       scoreBox.getChildren().add(App.getScoreLabel());
        App.getConsole().appendText("you are at the playground \n");
 
     }    
@@ -53,19 +56,19 @@ public class PlaygroundController implements Initializable {
     @FXML
     private void pickUpJuice(MouseEvent event) {
         App.g.pickUpTrash("Juicebox");
-        App.getConsole().appendText("you picked up the Juice \n");
+        
     }
 
     @FXML
     private void pickUpBall(MouseEvent event) {
     App.g.pickUpTrash("Ball");
-    App.getConsole().appendText("you picked up the Ball \n");
+    
     }
 
     @FXML
     private void pickUpBag(MouseEvent event) {
     App.g.pickUpTrash("Bag");
-    App.getConsole().appendText("you picked up the Bag \n");
+   
     }
 
 }

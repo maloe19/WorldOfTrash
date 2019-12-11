@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 /**
@@ -16,6 +17,7 @@ public class App extends Application {
 
     private static Scene scene;
     private static TextArea console;
+    private static Label scoreLabel;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -23,6 +25,12 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         console = new TextArea();
+        scoreLabel = new Label();
+        scoreLabel.setText("Score: "+App.g.score.getScore());
+    }
+
+    public static Label getScoreLabel() {
+        return scoreLabel;
     }
     
     public static TextArea getConsole() {

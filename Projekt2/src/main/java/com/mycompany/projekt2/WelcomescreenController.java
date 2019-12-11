@@ -20,13 +20,11 @@ import javafx.scene.control.TextField;
  * @author Bruger
  */
 public class WelcomescreenController implements Initializable {
-
+    
 
     @FXML
     private TextField writename;
-    /**
-     * Initializes the controller class.
-     */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -34,11 +32,12 @@ public class WelcomescreenController implements Initializable {
     
     @FXML
     private void enterName(ActionEvent event) throws IOException {
-        
+        String name = writename.getText();
         App.g.play();
         App.g.createRooms();
-        
+        App.getConsole().appendText("Welcome "+name+"!\nGood Luck on your journey!\n \n");
         App.setRoot("outside");
+        
     }
 
 }

@@ -35,12 +35,15 @@ public class ForrestController implements Initializable {
     private Label can;
     @FXML
     private AnchorPane ancPane;
+    @FXML
+    private AnchorPane scoreBox;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
+        scoreBox.getChildren().add(App.getScoreLabel());
         App.getConsole().appendText("you are in the forrest \n");
 
     }    
@@ -58,13 +61,13 @@ public class ForrestController implements Initializable {
     @FXML
     private void pickUpBulb(MouseEvent event) {
         App.g.pickUpTrash("Bulb");
-        App.getConsole().appendText("you picked up the Bulb \n");
+        
     }
 
     @FXML
     private void pickUpCan(MouseEvent event) {
         App.g.pickUpTrash("Can");
-        App.getConsole().appendText("you picked up the Can \n");
+
     }
 
 }

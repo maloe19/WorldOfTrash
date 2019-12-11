@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,24 +39,22 @@ public class OutsideController implements Initializable {
     private Button NTS;
     //@FXML
     //private ImageView backgroundImage;
-    
-        
-    //Image beach;
-    @FXML
-    private Pane pane;
     @FXML
     private AnchorPane ancPane;
     @FXML
     private ImageView backgroundImage;
+    @FXML
+    private AnchorPane scoreBox;
         
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        scoreBox.getChildren().add(App.getScoreLabel());
         ancPane.getChildren().add(App.getConsole());
         App.getConsole().appendText("you are outside of your home \n");
+        
 
     }    
     

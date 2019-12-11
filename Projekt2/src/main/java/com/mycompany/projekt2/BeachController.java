@@ -34,12 +34,15 @@ public class BeachController implements Initializable {
     private Label cardboard;
     @FXML
     private AnchorPane ancPane;
+    @FXML
+    private AnchorPane scoreBox;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
+        scoreBox.getChildren().add(App.getScoreLabel());
         App.getConsole().appendText("you are at the beach \n");
 
     }    
@@ -47,7 +50,7 @@ public class BeachController implements Initializable {
     @FXML
     private void pickUpbottle(MouseEvent event) {
         App.g.pickUpTrash("Bottle");
-        App.getConsole().appendText("you picked up the Bottle \n");
+        
     }
 
     @FXML
@@ -58,13 +61,13 @@ public class BeachController implements Initializable {
     @FXML
     private void pickUpStraw(MouseEvent event) {
         App.g.pickUpTrash("Straw");
-        App.getConsole().appendText("you picked up the Straw \n");
+        
     }
 
     @FXML
     private void pickUpCardboard(MouseEvent event) {
         App.g.pickUpTrash("Cardboard");
-        App.getConsole().appendText("you picked up the Cardboard \n");
+        
     }
 
 }
