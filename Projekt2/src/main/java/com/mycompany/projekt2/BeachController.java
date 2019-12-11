@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 /**
  * FXML Controller class
  *
@@ -36,6 +37,10 @@ public class BeachController implements Initializable {
     private AnchorPane ancPane;
     @FXML
     private AnchorPane scoreBox;
+    @FXML
+    private Pane trashPaneB;
+    @FXML
+    private AnchorPane inventoryPane;
     /**
      * Initializes the controller class.
      */
@@ -43,14 +48,17 @@ public class BeachController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
         scoreBox.getChildren().add(App.getScoreLabel());
+        inventoryPane.getChildren().add(App.getInventoryBox());
         App.getConsole().appendText("you are at the beach \n");
 
     }    
     
     @FXML
     private void pickUpbottle(MouseEvent event) {
-        App.g.pickUpTrash("Bottle");
-        
+        if (App.g.pickUpTrash("Bottle") == true) {
+        App.getInventoryBox().getChildren().add(bottle);
+        trashPaneB.getChildren().remove(bottle);
+        }
     }
 
     @FXML
@@ -60,14 +68,18 @@ public class BeachController implements Initializable {
 
     @FXML
     private void pickUpStraw(MouseEvent event) {
-        App.g.pickUpTrash("Straw");
-        
+        if (App.g.pickUpTrash("Straw") == true) {
+        App.getInventoryBox().getChildren().add(straw);
+        trashPaneB.getChildren().remove(straw);
+        }
     }
 
     @FXML
     private void pickUpCardboard(MouseEvent event) {
-        App.g.pickUpTrash("Cardboard");
-        
+        if (App.g.pickUpTrash("Cardboard") == true) {
+        App.getInventoryBox().getChildren().add(cardboard);
+        trashPaneB.getChildren().remove(cardboard);
+        }
     }
 
 }

@@ -26,7 +26,7 @@
             </ImageView>
             <BorderPane prefHeight="405.3333333333333" prefWidth="639.3333333333334" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <center>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="601.0">
+                  <Pane fx:id="trashPaneF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="601.0">
                      <children>
                         <Label fx:id="bulb" layoutX="240.0" layoutY="188.0" onMouseClicked="#pickUpBulb" prefHeight="0.0" prefWidth="19.0" rotate="-23.2">
                            <graphic>
@@ -78,7 +78,7 @@
                         <SplitPane dividerPositions="0.34210526315789475" layoutX="14.0" layoutY="-61.0" orientation="VERTICAL" prefHeight="78.0" prefWidth="323.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <items>
                             <AnchorPane fx:id="scoreBox" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                            <AnchorPane fx:id="inventoryPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
                           </items>
                         </SplitPane>
                      </children></AnchorPane>

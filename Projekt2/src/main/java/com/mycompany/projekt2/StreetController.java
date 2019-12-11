@@ -60,26 +60,32 @@ public class StreetController implements Initializable {
     private void southToOutside(ActionEvent event) throws IOException {
         App.g.goRoom("south");
        
-    }
+    }   
 
     @FXML
     private void pickUpNewspaper(MouseEvent event) throws IOException {
-        if (App.g.pickUpTrash("Newspaper") == true) {
+        if (App.g.inv.getBackpack().contains(newspaper)){
+            
+        } else if (App.g.pickUpTrash("Newspaper") == true) {
         App.getInventoryBox().getChildren().add(newspaper);
         trashPaneS.getChildren().remove(newspaper);
         }
-        App.g.inv.printInventory();
     }
 
     @FXML
     private void pickUpJar(MouseEvent event) {
-        App.g.pickUpTrash("Jar");
-       
+        if (App.g.pickUpTrash("Jar") == true) {
+        App.getInventoryBox().getChildren().add(jar);
+        trashPaneS.getChildren().remove(jar);
+        }
     }
 
     @FXML
     private void pickUpSodaCan(MouseEvent event) {
-        App.g.pickUpTrash("Soda");
+        if (App.g.pickUpTrash("Soda") == true) {
+        App.getInventoryBox().getChildren().add(sodacan);
+        trashPaneS.getChildren().remove(sodacan);
+        }
         
     }
     

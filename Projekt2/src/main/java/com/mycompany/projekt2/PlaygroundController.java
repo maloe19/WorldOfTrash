@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 /**
  * FXML Controller class
  *
@@ -37,6 +38,10 @@ public class PlaygroundController implements Initializable {
     private AnchorPane ancPane;
     @FXML
     private AnchorPane scoreBox;
+    @FXML
+    private AnchorPane inventoryPane;
+    @FXML
+    private Pane trashPaneP;
     /**
      * Initializes the controller class.
      */
@@ -44,6 +49,7 @@ public class PlaygroundController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
        ancPane.getChildren().add(App.getConsole());
        scoreBox.getChildren().add(App.getScoreLabel());
+       inventoryPane.getChildren().add(App.getInventoryBox());
        App.getConsole().appendText("you are at the playground \n");
 
     }    
@@ -55,20 +61,27 @@ public class PlaygroundController implements Initializable {
 
     @FXML
     private void pickUpJuice(MouseEvent event) {
-        App.g.pickUpTrash("Juicebox");
+         if (App.g.pickUpTrash("Juicebox") == true) {
+        App.getInventoryBox().getChildren().add(juice);
+        trashPaneP.getChildren().remove(juice);
+        }
         
     }
 
     @FXML
     private void pickUpBall(MouseEvent event) {
-    App.g.pickUpTrash("Ball");
-    
+        if (App.g.pickUpTrash("Ball") == true) {
+        App.getInventoryBox().getChildren().add(ball);
+        trashPaneP.getChildren().remove(ball);
+    }
     }
 
     @FXML
     private void pickUpBag(MouseEvent event) {
-    App.g.pickUpTrash("Bag");
-   
+        if (App.g.pickUpTrash("Bag") == true) {
+        App.getInventoryBox().getChildren().add(bag);
+        trashPaneP.getChildren().remove(bag);
+    }
     }
 
 }

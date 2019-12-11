@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 /**
  * JavaFX App
@@ -19,7 +19,7 @@ public class App extends Application {
     private static Scene scene;
     private static TextArea console;
     private static Label scoreLabel;
-    private static VBox inventoryBox;
+    private static HBox inventoryBox;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -28,11 +28,11 @@ public class App extends Application {
         stage.show();
         console = new TextArea();
         scoreLabel = new Label();
-        inventoryBox = new VBox();
+        inventoryBox = new HBox();
         scoreLabel.setText("Score: "+App.g.score.getScore());
     }
     
-    public static VBox getInventoryBox() {
+    public static HBox getInventoryBox() {
         return inventoryBox;
     }
     

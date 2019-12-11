@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 /**
  * FXML Controller class
  *
@@ -37,6 +38,10 @@ public class ForrestController implements Initializable {
     private AnchorPane ancPane;
     @FXML
     private AnchorPane scoreBox;
+    @FXML
+    private AnchorPane inventoryPane;
+    @FXML
+    private Pane trashPaneF;
     /**
      * Initializes the controller class.
      */
@@ -44,6 +49,7 @@ public class ForrestController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
         scoreBox.getChildren().add(App.getScoreLabel());
+        inventoryPane.getChildren().add(App.getInventoryBox());
         App.getConsole().appendText("you are in the forrest \n");
 
     }    
@@ -60,13 +66,18 @@ public class ForrestController implements Initializable {
 
     @FXML
     private void pickUpBulb(MouseEvent event) {
-        App.g.pickUpTrash("Bulb");
-        
+        if (App.g.pickUpTrash("Bulb") == true) {
+        App.getInventoryBox().getChildren().add(bulb);
+        trashPaneF.getChildren().remove(bulb);
+        }
     }
 
     @FXML
     private void pickUpCan(MouseEvent event) {
-        App.g.pickUpTrash("Can");
+        if (App.g.pickUpTrash("Can") == true) {
+        App.getInventoryBox().getChildren().add(can);
+        trashPaneF.getChildren().remove(can);
+        }
 
     }
 

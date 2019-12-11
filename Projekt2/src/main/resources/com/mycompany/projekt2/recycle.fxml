@@ -37,7 +37,7 @@
                            <graphic>
                               <ImageView fitHeight="78.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@metalbin.png" />
+                                    <Image url="@metal.png" />
                                  </image>
                               </ImageView>
                            </graphic>
