@@ -39,6 +39,8 @@ public class RecycleController implements Initializable {
     private AnchorPane ancPane;
     @FXML
     private AnchorPane scoreBox;
+    @FXML
+    private AnchorPane inventoryPane;
     /**
      * Initializes the controller class.
      */
@@ -46,6 +48,7 @@ public class RecycleController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
         scoreBox.getChildren().add(App.getScoreLabel());
+        inventoryPane.getChildren().add(App.getInventoryBox());
         App.getConsole().appendText("you are in the recycling room \n");
 
     }    

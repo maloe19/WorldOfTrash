@@ -228,19 +228,24 @@ public class Game {
         }
     }
 
-    public boolean pickUpTrash(String trash) {
-        Boolean isadded = false;
+    public int pickUpTrash(String trash) {
+        int occasion = 3;
         
-        if (App.g.inv.getBACKCAP() > App.g.inv.getBackpack().size()) { 
+        if (App.g.inv.getBACKCAP() > App.g.inv.getBackpack().size() && 
+                App.g.currentRoom.getTrashList().contains(App.g.currentRoom.getTrashKey(trash))) { 
+        
         Trash key = App.g.currentRoom.getTrashKey(trash);
         App.g.inv.addTrash(key);
         App.g.currentRoom.getTrashList().remove(key);
         App.getConsole().appendText("you picked up the " + trash + "\n");
-        isadded=true;
-    } else {
-        App.getConsole().appendText("your backpack is full " + trash + " can't be picked up\n");    
-        }
-        return isadded;
+        occasion = 1;
+    } else if (!App.g.currentRoom.getTrashList().contains(App.g.currentRoom.getTrashKey(trash))){
+            //Her indsætter vi koden for når det skal smides ud
+            occasion = 2;
+        } else {
+    App.getConsole().appendText("your backpack is full " + trash + " can't be picked up\n");    
+    }
+        return occasion;
         }
     
     //Method for adding trash to backpack, from every possible scenario

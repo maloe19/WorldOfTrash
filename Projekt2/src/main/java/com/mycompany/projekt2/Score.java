@@ -27,11 +27,13 @@ public class Score {
     // Method - a getter method that can increase the score value
     public void scorePositive(int positiveScore) {
         score += positiveScore;
+        App.getScoreLabel().setText("Score: "+App.g.score.getScore());
     }
 
     // Method - a getter method that can decrease the score value
     public void scoreNegative(int negativeScore) {
         score -= negativeScore;
+        App.getScoreLabel().setText("Score: "+App.g.score.getScore());
     }
 
 }

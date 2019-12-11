@@ -55,7 +55,7 @@ public class BeachController implements Initializable {
     
     @FXML
     private void pickUpbottle(MouseEvent event) {
-        if (App.g.pickUpTrash("Bottle") == true) {
+        if (App.g.pickUpTrash("Bottle") == 1) {
         App.getInventoryBox().getChildren().add(bottle);
         trashPaneB.getChildren().remove(bottle);
         }
@@ -68,7 +68,7 @@ public class BeachController implements Initializable {
 
     @FXML
     private void pickUpStraw(MouseEvent event) {
-        if (App.g.pickUpTrash("Straw") == true) {
+        if (App.g.pickUpTrash("Straw") == 1) {
         App.getInventoryBox().getChildren().add(straw);
         trashPaneB.getChildren().remove(straw);
         }
@@ -76,7 +76,7 @@ public class BeachController implements Initializable {
 
     @FXML
     private void pickUpCardboard(MouseEvent event) {
-        if (App.g.pickUpTrash("Cardboard") == true) {
+        if (App.g.pickUpTrash("Cardboard") == 1) {
         App.getInventoryBox().getChildren().add(cardboard);
         trashPaneB.getChildren().remove(cardboard);
         }

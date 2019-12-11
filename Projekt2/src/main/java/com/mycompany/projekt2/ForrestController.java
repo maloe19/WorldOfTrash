@@ -66,7 +66,7 @@ public class ForrestController implements Initializable {
 
     @FXML
     private void pickUpBulb(MouseEvent event) {
-        if (App.g.pickUpTrash("Bulb") == true) {
+        if (App.g.pickUpTrash("Bulb") == 1) {
         App.getInventoryBox().getChildren().add(bulb);
         trashPaneF.getChildren().remove(bulb);
         }
@@ -74,7 +74,7 @@ public class ForrestController implements Initializable {
 
     @FXML
     private void pickUpCan(MouseEvent event) {
-        if (App.g.pickUpTrash("Can") == true) {
+        if (App.g.pickUpTrash("Can") == 1) {
         App.getInventoryBox().getChildren().add(can);
         trashPaneF.getChildren().remove(can);
         }

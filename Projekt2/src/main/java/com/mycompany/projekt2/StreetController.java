@@ -64,17 +64,18 @@ public class StreetController implements Initializable {
 
     @FXML
     private void pickUpNewspaper(MouseEvent event) throws IOException {
-        if (App.g.inv.getBackpack().contains(newspaper)){
-            
-        } else if (App.g.pickUpTrash("Newspaper") == true) {
+        if (App.g.pickUpTrash("Newspaper") == 1) {
         App.getInventoryBox().getChildren().add(newspaper);
         trashPaneS.getChildren().remove(newspaper);
+        } else if (App.g.pickUpTrash("Newspaper") == 2) {
+            //Hvad end der nu skal ske :)
+            App.getConsole().appendText("Alrdy picked");
         }
     }
 
     @FXML
     private void pickUpJar(MouseEvent event) {
-        if (App.g.pickUpTrash("Jar") == true) {
+        if (App.g.pickUpTrash("Jar") == 1) {
         App.getInventoryBox().getChildren().add(jar);
         trashPaneS.getChildren().remove(jar);
         }
@@ -82,7 +83,7 @@ public class StreetController implements Initializable {
 
     @FXML
     private void pickUpSodaCan(MouseEvent event) {
-        if (App.g.pickUpTrash("Soda") == true) {
+        if (App.g.pickUpTrash("Soda") == 1) {
         App.getInventoryBox().getChildren().add(sodacan);
         trashPaneS.getChildren().remove(sodacan);
         }

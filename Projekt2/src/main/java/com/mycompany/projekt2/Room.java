@@ -57,11 +57,9 @@ public class Room
         Trash trashName = null;
         for(Trash tr : trashList){
             if (tr.getName().equalsIgnoreCase(name)){
-            System.out.println("xx> :"+tr+"> "+tr.getName());
             trashName = tr;
             }  
         }
-        System.out.println("HER!"+trashName);
         return trashName;
     }
     

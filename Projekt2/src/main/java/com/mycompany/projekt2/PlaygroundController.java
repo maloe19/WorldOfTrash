@@ -61,7 +61,7 @@ public class PlaygroundController implements Initializable {
 
     @FXML
     private void pickUpJuice(MouseEvent event) {
-         if (App.g.pickUpTrash("Juicebox") == true) {
+         if (App.g.pickUpTrash("Juicebox") == 1) {
         App.getInventoryBox().getChildren().add(juice);
         trashPaneP.getChildren().remove(juice);
         }
@@ -70,7 +70,7 @@ public class PlaygroundController implements Initializable {
 
     @FXML
     private void pickUpBall(MouseEvent event) {
-        if (App.g.pickUpTrash("Ball") == true) {
+        if (App.g.pickUpTrash("Ball") == 1) {
         App.getInventoryBox().getChildren().add(ball);
         trashPaneP.getChildren().remove(ball);
     }
@@ -78,7 +78,7 @@ public class PlaygroundController implements Initializable {
 
     @FXML
     private void pickUpBag(MouseEvent event) {
-        if (App.g.pickUpTrash("Bag") == true) {
+        if (App.g.pickUpTrash("Bag") == 1) {
         App.getInventoryBox().getChildren().add(bag);
         trashPaneP.getChildren().remove(bag);
     }

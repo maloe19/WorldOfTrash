@@ -45,6 +45,8 @@ public class OutsideController implements Initializable {
     private ImageView backgroundImage;
     @FXML
     private AnchorPane scoreBox;
+    @FXML
+    private AnchorPane inventoryPane;
         
     /**
      * Initializes the controller class.
@@ -53,9 +55,8 @@ public class OutsideController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         scoreBox.getChildren().add(App.getScoreLabel());
         ancPane.getChildren().add(App.getConsole());
+        inventoryPane.getChildren().add(App.getInventoryBox());
         App.getConsole().appendText("you are outside of your home \n");
-        
-
     }    
     
     @FXML
