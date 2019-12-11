@@ -22,9 +22,9 @@
             </ImageView>
             <BorderPane layoutX="274.0" layoutY="361.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <center>
-                  <Pane>
+                  <Pane fx:id="trashPaneS">
                      <children>
-                        <Label fx:id="newspaper1" layoutX="226.0" layoutY="271.0" onMouseClicked="#pickUpNewspaper" prefHeight="0.0" prefWidth="19.0">
+                        <Label fx:id="newspaper" layoutX="226.0" layoutY="271.0" onMouseClicked="#pickUpNewspaper" prefHeight="0.0" prefWidth="19.0">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -41,7 +41,7 @@
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label fx:id="jar1" layoutX="14.0" layoutY="99.0" onMouseClicked="#pickUpJar" prefHeight="25.0" prefWidth="20.0">
+                        <Label fx:id="jar" layoutX="14.0" layoutY="99.0" onMouseClicked="#pickUpJar" prefHeight="25.0" prefWidth="20.0">
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -76,7 +76,7 @@
                         <SplitPane dividerPositions="0.22340425531914893" layoutX="-50.0" layoutY="-76.0" orientation="VERTICAL" prefHeight="96.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <items>
                             <AnchorPane fx:id="scoreBox" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                            <AnchorPane fx:id="inventoryPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
                           </items>
                         </SplitPane>
                      </children></AnchorPane>

@@ -228,13 +228,21 @@ public class Game {
         }
     }
 
-    public void pickUpTrash(String trash) {
+    public boolean pickUpTrash(String trash) {
+        Boolean isadded = false;
+        
+        if (App.g.inv.getBACKCAP() > App.g.inv.getBackpack().size()) { 
         Trash key = App.g.currentRoom.getTrashKey(trash);
         App.g.inv.addTrash(key);
-        System.out.println("inventory: ");
-        App.g.inv.printInventory();
+        App.g.currentRoom.getTrashList().remove(key);
         App.getConsole().appendText("you picked up the " + trash + "\n");
-    }
+        isadded=true;
+    } else {
+        App.getConsole().appendText("your backpack is full " + trash + " can't be picked up\n");    
+        }
+        return isadded;
+        }
+    
     //Method for adding trash to backpack, from every possible scenario
     /*public void pickUpTrash(Command command) {
         if (!command.hasSecondWord()) {

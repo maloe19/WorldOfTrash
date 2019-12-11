@@ -18,6 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 /**
  * FXML Controller class
  *
@@ -30,15 +31,19 @@ public class StreetController implements Initializable {
     @FXML
     private Button STO;
     @FXML
-    private Label newspaper1;
+    private Label newspaper;
     @FXML
-    private Label jar1;
+    private Label jar;
     @FXML
     private Label sodacan;
     @FXML
     private AnchorPane ancPane;
     @FXML
     private AnchorPane scoreBox;
+    @FXML
+    private Pane trashPaneS;
+    @FXML
+    private AnchorPane inventoryPane;
     /**
      * Initializes the controller class.
      */
@@ -46,6 +51,7 @@ public class StreetController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
        ancPane.getChildren().add(App.getConsole());
        scoreBox.getChildren().add(App.getScoreLabel());
+       inventoryPane.getChildren().add(App.getInventoryBox());
        App.getConsole().appendText("you are on the street \n");
 
     }    
@@ -56,15 +62,13 @@ public class StreetController implements Initializable {
        
     }
 
-    private void pickUpNewspaper(ActionEvent event) throws IOException {
-        App.g.pickUpTrash("Newspaper");
-    }
-
     @FXML
     private void pickUpNewspaper(MouseEvent event) throws IOException {
-        App.g.pickUpTrash("Newspaper");
-        App.g.score.scorePositive(10);
-        
+        if (App.g.pickUpTrash("Newspaper") == true) {
+        App.getInventoryBox().getChildren().add(newspaper);
+        trashPaneS.getChildren().remove(newspaper);
+        }
+        App.g.inv.printInventory();
     }
 
     @FXML
