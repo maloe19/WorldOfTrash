@@ -43,6 +43,8 @@ public class RecycleController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
+        App.getConsole().appendText("you are in the recycling room \n");
+
     }    
     
     @FXML

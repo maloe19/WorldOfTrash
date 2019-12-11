@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
@@ -35,18 +36,21 @@ public class StreetController implements Initializable {
     @FXML
     private Label sodacan;
     @FXML
-    private TextArea ancPane;
+    private AnchorPane ancPane;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       ancPane.getChildren().add(App.getConsole());
+       App.getConsole().appendText("you are on the street \n");
+
     }    
     
     @FXML
     private void southToOutside(ActionEvent event) throws IOException {
         App.g.goRoom("south");
+       
     }
 
     private void pickUpNewspaper(ActionEvent event) throws IOException {
@@ -56,16 +60,19 @@ public class StreetController implements Initializable {
     @FXML
     private void pickUpNewspaper(MouseEvent event) throws IOException {
         App.g.pickUpTrash("Newspaper");
+        App.getConsole().appendText("you picked up the Newspaper \n");
     }
 
     @FXML
     private void pickUpJar(MouseEvent event) {
         App.g.pickUpTrash("Jar");
+        App.getConsole().appendText("you picked up the Jar \n");
     }
 
     @FXML
     private void pickUpSodaCan(MouseEvent event) {
         App.g.pickUpTrash("Soda");
+        App.getConsole().appendText("you picked up the Soda Can \n");
     }
     
 }

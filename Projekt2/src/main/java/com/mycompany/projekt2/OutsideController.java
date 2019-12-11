@@ -55,7 +55,7 @@ public class OutsideController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         ancPane.getChildren().add(App.getConsole());
-        App.getConsole().appendText("Test 123\n");
+        App.getConsole().appendText("you are outside of your home \n");
 
     }    
     

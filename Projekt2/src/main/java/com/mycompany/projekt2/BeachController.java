@@ -40,11 +40,14 @@ public class BeachController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
+        App.getConsole().appendText("you are at the beach \n");
+
     }    
     
     @FXML
     private void pickUpbottle(MouseEvent event) {
         App.g.pickUpTrash("Bottle");
+        App.getConsole().appendText("you picked up the Bottle \n");
     }
 
     @FXML
@@ -55,11 +58,13 @@ public class BeachController implements Initializable {
     @FXML
     private void pickUpStraw(MouseEvent event) {
         App.g.pickUpTrash("Straw");
+        App.getConsole().appendText("you picked up the Straw \n");
     }
 
     @FXML
     private void pickUpCardboard(MouseEvent event) {
         App.g.pickUpTrash("Cardboard");
+        App.getConsole().appendText("you picked up the Cardboard \n");
     }
 
 }

@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
@@ -33,13 +34,15 @@ public class ForrestController implements Initializable {
     @FXML
     private Label can;
     @FXML
-    private TextArea ancPane;
+    private AnchorPane ancPane;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        ancPane.getChildren().add(App.getConsole());
+        App.getConsole().appendText("you are in the forrest \n");
+
     }    
     
     @FXML
@@ -55,11 +58,13 @@ public class ForrestController implements Initializable {
     @FXML
     private void pickUpBulb(MouseEvent event) {
         App.g.pickUpTrash("Bulb");
+        App.getConsole().appendText("you picked up the Bulb \n");
     }
 
     @FXML
     private void pickUpCan(MouseEvent event) {
         App.g.pickUpTrash("Can");
+        App.getConsole().appendText("you picked up the Can \n");
     }
 
 }
