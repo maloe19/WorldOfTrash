@@ -34,7 +34,6 @@ public class WelcomescreenController implements Initializable {
     private void enterName(ActionEvent event) throws IOException {
         String name = writename.getText();
         App.g.play();
-        App.g.createRooms();
         App.getConsole().appendText("Welcome "+name+"!\nGood Luck on your journey!\n \n");
         App.setRoot("outside");
         

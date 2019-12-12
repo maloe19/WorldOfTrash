@@ -3,6 +3,7 @@ package com.mycompany.projekt2;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 import static javafx.application.Application.launch;
 import javafx.scene.control.Label;
@@ -14,7 +15,7 @@ public class Game {
     //3 attributes and 2 objects 
     public Parser parser;
     private Room currentRoom;
-    public ArrayList<Room> roomList;
+    private ArrayList<Room> roomList;
     Inventory inv;
     Score score = new Score();
     private String chosenTrash;
@@ -28,6 +29,10 @@ public class Game {
         this.chosenTrash = chosenTrash;
     }
    
+    public ArrayList<Room> getRoomList() {
+        return roomList;
+    }
+    
     //Constructor that sets up the game (parser, rooms, trash etc.)
     public Game() {
         roomList = new ArrayList();
@@ -35,12 +40,13 @@ public class Game {
         parser = new Parser();
         inv = new Inventory();
     }
-
+    
+    /* MIDLERTIDIGT (12.12)
     public void addAll(Room... rooms) {
         for (Room room : rooms) {
             roomList.add(room);
         }
-    }
+    }*/
 
     //Method: creates every element that is default in the game
     public void createRooms() {
@@ -97,8 +103,9 @@ public class Game {
         street.setExit("south", outside);
 
         currentRoom = outside;
-
-        addAll(outside, recycle, playground, forrest, beach, street);
+        
+        Collections.addAll(roomList, outside, recycle, playground, forrest, beach, street);
+        //addAll(outside, recycle, playground, forrest, beach, street);
     }
 
     //Method: controls whether the game is running or not - Supplies with needed text when game ended/started
@@ -182,9 +189,9 @@ public class Game {
         return wantToQuit;
     }
       public void isEndGame() throws IOException {
-        gameIsCompleted();
-          //  App.setRoot("endscreen");
-       // }
+        if(gameIsCompleted()){
+           App.setRoot("endscreen");
+      }
     }   
     
     
@@ -199,7 +206,6 @@ public class Game {
             App.g.inv.removeTrash(key);
             isValid = true;
             App.getConsole().appendText("Good job!\nYou threw the " + trash + " in the right bin\n");
-            //App.g.isEndGame();
         } else if (!key.getBinType().equalsIgnoreCase(bin.getType())){
             //Ukorrekt tilfælde
         App.g.score.scoreNegative(key.getRecyclability());
@@ -367,16 +373,28 @@ public class Game {
         }
     }
         //boolean
-        public void gameIsCompleted() {
-        for (Room r : App.g.roomList) {
+    public boolean gameIsCompleted() {
+        boolean complete = true;
+        for (Room r : App.g.getRoomList()) {
+            System.out.println("_>"+r.name);
+            System.out.println(r.getTrashList());
             if (!r.getTrashList().isEmpty()) {
-                System.out.println("___R-List___");
+                complete = false;
+            }
+        } if (!App.g.inv.getBackpack().isEmpty()) {
+            complete = false;
+        }
+        return complete;
+            /*
+        for (Room r : App.g.getRoomList()) {
+            if (!r.getTrashList().isEmpty()) {
+                System.out.println("__"+r.name+"__");
                 r.printTrashList();
-                //return false;
+                return false;
             }
         }
-        System.out.println("INV:" +App.g.inv.getBackpack().isEmpty());
-        //return App.g.inv.getBackpack().isEmpty();
+        App.g.inv.printInventory();
+        return App.g.inv.getBackpack().isEmpty();*/
     }
     
 
