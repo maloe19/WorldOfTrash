@@ -103,7 +103,6 @@ public class Game {
 
     //Method: controls whether the game is running or not - Supplies with needed text when game ended/started
     public void play() {
-        printWelcome();
 
         boolean finished = false;
         boolean isCompleted = false;
@@ -134,10 +133,10 @@ public class Game {
     }
 
     //Method - intro
-    public void printWelcome() {
+    /*public void printWelcome() {
         System.out.println();
         System.out.println("Welcome to the World Of Trash!\n");
-       /* delay(1000);
+        delay(1000);
         System.out.println("World Of Trash is a text-based \nLearning game about the enviroment!\n");
         delay(2000);
         System.out.println("The world is at the brink of extinction \nBecause of all the trash lying around\n");
@@ -154,7 +153,7 @@ public class Game {
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
-    */}
+    }*/
 
     //Method - Proccessing the commands from input
     public boolean processCommand(Command command) {
@@ -172,13 +171,13 @@ public class Game {
         } else if (commandWord == CommandWord.GO) {
             //goRoom(command);
         } else if (commandWord == CommandWord.SEARCH) {
-            currentRoom.getTrashNames();
+            //currentRoom.getTrashNames();
         } else if (commandWord == CommandWord.PICKUP) {
            // pickUpTrash(command);
         } else if (commandWord == CommandWord.THROW) {
             //throwTrash(command);
         } else if (commandWord == CommandWord.QUIT) {
-            wantToQuit = quit(command);
+            //wantToQuit = quit(command);
         }
         return wantToQuit;
     }
