@@ -69,6 +69,9 @@ public class ForrestController implements Initializable {
         if (App.g.pickUpTrash("Bulb") == 1) {
         App.getInventoryBox().getChildren().add(bulb);
         trashPaneF.getChildren().remove(bulb);
+        } else if (App.g.pickUpTrash("bulb") == 2) {
+            App.getConsole().appendText("Bulb is chosen\n");
+            App.g.setChosenLabel(bulb); 
         }
     }
 
@@ -77,6 +80,9 @@ public class ForrestController implements Initializable {
         if (App.g.pickUpTrash("Can") == 1) {
         App.getInventoryBox().getChildren().add(can);
         trashPaneF.getChildren().remove(can);
+        } else if (App.g.pickUpTrash("can") == 2) {
+            App.getConsole().appendText("Can is chosen\n");
+            App.g.setChosenLabel(can); 
         }
 
     }

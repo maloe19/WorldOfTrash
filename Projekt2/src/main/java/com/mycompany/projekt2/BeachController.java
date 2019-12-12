@@ -58,6 +58,9 @@ public class BeachController implements Initializable {
         if (App.g.pickUpTrash("Bottle") == 1) {
         App.getInventoryBox().getChildren().add(bottle);
         trashPaneB.getChildren().remove(bottle);
+        } else if (App.g.pickUpTrash("bottle") == 2) {
+            App.getConsole().appendText("Bottle is chosen\n");
+            App.g.setChosenLabel(bottle); 
         }
     }
 
@@ -68,17 +71,23 @@ public class BeachController implements Initializable {
 
     @FXML
     private void pickUpStraw(MouseEvent event) {
-        if (App.g.pickUpTrash("Straw") == 1) {
+        if (App.g.pickUpTrash("straw") == 1) {
         App.getInventoryBox().getChildren().add(straw);
         trashPaneB.getChildren().remove(straw);
+        } else if (App.g.pickUpTrash("straw") == 2) {
+            App.getConsole().appendText("Straw is chosen\n");
+            App.g.setChosenLabel(straw); 
         }
     }
 
     @FXML
     private void pickUpCardboard(MouseEvent event) {
-        if (App.g.pickUpTrash("Cardboard") == 1) {
+        if (App.g.pickUpTrash("cardboard") == 1) {
         App.getInventoryBox().getChildren().add(cardboard);
         trashPaneB.getChildren().remove(cardboard);
+        } else if (App.g.pickUpTrash("cardboard") == 2) {
+            App.getConsole().appendText("Cardboard is chosen\n");
+            App.g.setChosenLabel(cardboard); 
         }
     }
 

@@ -46,6 +46,8 @@ public class StreetController implements Initializable {
     private Pane trashPaneS;
     @FXML
     private AnchorPane inventoryPane;
+    
+    
    
     /**
      * Initializes the controller class.
@@ -72,27 +74,30 @@ public class StreetController implements Initializable {
         App.getInventoryBox().getChildren().add(newspaper);
         trashPaneS.getChildren().remove(newspaper);
         } else if (App.g.pickUpTrash("Newspaper") == 2) {
-            //newspaper.setEffect(App.getBorderglow()); 
+            App.getConsole().appendText("Newspaper is chosen\n");
+            App.g.setChosenLabel(newspaper); 
         }
     }
 
     @FXML
     private void pickUpJar(MouseEvent event) {
-        if (App.g.pickUpTrash("Jar") == 1) {
+        if (App.g.pickUpTrash("jar") == 1) {
         App.getInventoryBox().getChildren().add(jar);
         trashPaneS.getChildren().remove(jar);
         } else if (App.g.pickUpTrash("jar") == 2) {
-            //Hvad end der nu skal ske :)
+            App.getConsole().appendText("Jar is chosen\n");
+            App.g.setChosenLabel(jar); 
         }
     }
 
     @FXML
     private void pickUpSodaCan(MouseEvent event) {
-        if (App.g.pickUpTrash("Soda") == 1) {
+        if (App.g.pickUpTrash("soda") == 1) {
         App.getInventoryBox().getChildren().add(sodacan);
         trashPaneS.getChildren().remove(sodacan);
+        } else if (App.g.pickUpTrash("soda") == 2) {
+            App.getConsole().appendText("Soda is chosen\n");
+            App.g.setChosenLabel(sodacan); 
         }
-        
     }
-    
 }

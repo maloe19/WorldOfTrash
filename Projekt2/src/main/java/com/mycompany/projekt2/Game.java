@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import static javafx.application.Application.launch;
+import javafx.scene.control.Label;
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
 
@@ -17,6 +18,7 @@ public class Game {
     Inventory inv;
     Score score = new Score();
     private String chosenTrash;
+    private Label chosenLabel;
 
     public String getChosenTrash() {
         return chosenTrash;
@@ -58,9 +60,9 @@ public class Game {
 
         outside = new Room("outside of your home", "outside");
         recycle = new Recycle("in the recycling room", "recycle");
-        playground = new LockedRoom("at the playground", "playground", 0);
+        playground = new LockedRoom("at the playground", "playground", 75);
         forrest = new Room("in the forrest", "forrest");
-        beach = new LockedRoom("at the beach", "beach",0);
+        beach = new LockedRoom("at the beach", "beach", 150);
         street = new Room("on the street", "street");
 
         street.setTrash(can_s);
@@ -181,7 +183,13 @@ public class Game {
         return wantToQuit;
     }
 
-    public boolean throwTrash (String trash, ExtendedArrayList bin, Node label){
+    public void isEndGame () throws IOException {
+        if (gameIsCompleted()) {
+            App.setRoot("endscreen");
+        }
+    }
+    
+    public boolean throwTrash (String trash, ExtendedArrayList bin) throws IOException{
         Trash key = App.g.inv.getItemKey(trash);
         boolean isValid = false;
         if (App.g.chosenTrash == null){
@@ -191,8 +199,9 @@ public class Game {
             App.g.score.scorePositive(key.getRecyclability());
             App.g.inv.removeTrash(key);
             isValid = true;
-            App.getConsole().appendText("Good job! - You threw the " + trash + "in the right bin\n");
-            App.getInventoryBox().getChildren().remove(label);
+            App.getConsole().appendText("Good job!\nYou threw the " + trash + "in the right bin\n");
+            App.g.isEndGame();
+            //App.getInventoryBox().getChildren().remove(label);
         } else if (!key.getBinType().equalsIgnoreCase(bin.getType())){
             //Ukorrekt tilfælde
         App.g.score.scoreNegative(key.getRecyclability());
@@ -359,7 +368,7 @@ public class Game {
             return true;
         }
     }
-
+    
     public boolean gameIsCompleted() {
         for (Room r : roomList) {
             if (!r.getTrashList().isEmpty()) {
@@ -375,4 +384,14 @@ public class Game {
 
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
-    }}
+    }
+
+    public void setChosenLabel(Label chosenLabel) {
+        this.chosenLabel = chosenLabel;
+    }
+
+    public Label getChosenLabel() {
+        return chosenLabel;
+    }
+    
+}

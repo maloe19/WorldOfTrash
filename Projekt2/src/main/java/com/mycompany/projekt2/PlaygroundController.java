@@ -61,27 +61,35 @@ public class PlaygroundController implements Initializable {
 
     @FXML
     private void pickUpJuice(MouseEvent event) {
-         if (App.g.pickUpTrash("Juicebox") == 1) {
+        if (App.g.pickUpTrash("juicebox") == 1) {
         App.getInventoryBox().getChildren().add(juice);
         trashPaneP.getChildren().remove(juice);
+        } else if (App.g.pickUpTrash("juicebox") == 2) {
+            App.getConsole().appendText("Juice is chosen\n");
+            App.g.setChosenLabel(juice); 
         }
         
     }
 
     @FXML
     private void pickUpBall(MouseEvent event) {
-        if (App.g.pickUpTrash("Ball") == 1) {
+     if (App.g.pickUpTrash("ball") == 1) {
         App.getInventoryBox().getChildren().add(ball);
         trashPaneP.getChildren().remove(ball);
-    }
+        } else if (App.g.pickUpTrash("Ball") == 2) {
+            App.getConsole().appendText("Ball is chosen\n");
+            App.g.setChosenLabel(ball); 
+        }
     }
 
     @FXML
     private void pickUpBag(MouseEvent event) {
-        if (App.g.pickUpTrash("Bag") == 1) {
+     if (App.g.pickUpTrash("bag") == 1) {
         App.getInventoryBox().getChildren().add(bag);
         trashPaneP.getChildren().remove(bag);
-    }
-    }
+        } else if (App.g.pickUpTrash("bag") == 2) {
+            App.getConsole().appendText("Bag is chosen\n");
+            App.g.setChosenLabel(bag);
 
 }
+}}

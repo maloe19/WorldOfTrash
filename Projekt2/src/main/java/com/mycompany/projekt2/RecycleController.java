@@ -58,27 +58,27 @@ public class RecycleController implements Initializable {
     }
 
     @FXML
-    private void plasticthrown(MouseEvent event) {
-       App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getPlasticBin());
-       App.getInventoryBox().getChildren().remove(App.g.getChosenTrash());
-    }
+    private void plasticthrown(MouseEvent event) throws IOException {
+    if (App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getPlasticBin())==true){
+    App.getInventoryBox().getChildren().remove(App.g.getChosenLabel());
+    }}
 
     @FXML
-    private void metalthrown(MouseEvent event) {
-    System.out.println("metal clicked");
-    App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getMetalBin());
-    }
+    private void metalthrown(MouseEvent event) throws IOException {
+    if (App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getMetalBin())==true){
+    App.getInventoryBox().getChildren().remove(App.g.getChosenLabel());
+    }}
 
     @FXML
-    private void cardboardthrown(MouseEvent event) {
-    System.out.println("cardboard clicked");
-    App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getCardboardBin());
-    }
+    private void cardboardthrown(MouseEvent event) throws IOException {
+    if (App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getCardboardBin())==true){
+    App.getInventoryBox().getChildren().remove(App.g.getChosenLabel());
+    }}
 
     @FXML
-    private void glassthrown(MouseEvent event) {
-    System.out.println("glass clicked");
-    App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getGlassBin());
-    }
+    private void glassthrown(MouseEvent event) throws IOException {
+    if (App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getGlassBin())==true){
+    App.getInventoryBox().getChildren().remove(App.g.getChosenLabel());
+    }}
 
 }
