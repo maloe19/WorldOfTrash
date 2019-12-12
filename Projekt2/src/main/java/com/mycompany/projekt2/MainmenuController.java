@@ -35,6 +35,7 @@ public class MainmenuController implements Initializable {
     @FXML
     private void startGame(ActionEvent event) throws IOException {
         App.setRoot("welcomescreen");
+        
     }
 
 }

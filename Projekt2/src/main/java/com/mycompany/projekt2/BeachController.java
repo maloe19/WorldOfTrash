@@ -50,6 +50,7 @@ public class BeachController implements Initializable {
         scoreBox.getChildren().add(App.getScoreLabel());
         inventoryPane.getChildren().add(App.getInventoryBox());
         App.getConsole().appendText("you are at the beach \n");
+        checkTrash();
 
     }    
     
@@ -90,5 +91,16 @@ public class BeachController implements Initializable {
             App.g.setChosenLabel(cardboard); 
         }
     }
-
+    
+    private void checkTrash() {
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("straw"))){
+           trashPaneB.getChildren().remove(straw);
+       } 
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("bottle"))){
+           trashPaneB.getChildren().remove(bottle);
+       }
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("cardboard"))){
+           trashPaneB.getChildren().remove(cardboard);
+       }
+    }
 }

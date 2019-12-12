@@ -51,6 +51,7 @@ public class ForrestController implements Initializable {
         scoreBox.getChildren().add(App.getScoreLabel());
         inventoryPane.getChildren().add(App.getInventoryBox());
         App.getConsole().appendText("you are in the forrest \n");
+        checkTrash();
 
     }    
     
@@ -85,6 +86,15 @@ public class ForrestController implements Initializable {
             App.g.setChosenLabel(can); 
         }
 
+    }
+    
+      private void checkTrash() {
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("bulb"))){
+           trashPaneF.getChildren().remove(bulb);
+       } 
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("can"))){
+           trashPaneF.getChildren().remove(can);
+       }
     }
 
 }

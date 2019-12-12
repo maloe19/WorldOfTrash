@@ -40,6 +40,7 @@ public class RecycleController implements Initializable {
     private AnchorPane scoreBox;
     @FXML
     private AnchorPane inventoryPane;
+    
     /**
      * Initializes the controller class.
      */
@@ -61,24 +62,28 @@ public class RecycleController implements Initializable {
     private void plasticthrown(MouseEvent event) throws IOException {
     if (App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getPlasticBin())==true){
     App.getInventoryBox().getChildren().remove(App.g.getChosenLabel());
-    }}
+    }App.g.isEndGame();
+    }
 
     @FXML
     private void metalthrown(MouseEvent event) throws IOException {
     if (App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getMetalBin())==true){
     App.getInventoryBox().getChildren().remove(App.g.getChosenLabel());
-    }}
+    }App.g.isEndGame();
+    }
 
     @FXML
     private void cardboardthrown(MouseEvent event) throws IOException {
     if (App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getCardboardBin())==true){
     App.getInventoryBox().getChildren().remove(App.g.getChosenLabel());
-    }}
+    } App.g.isEndGame();
+    }
 
     @FXML
     private void glassthrown(MouseEvent event) throws IOException {
     if (App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getGlassBin())==true){
     App.getInventoryBox().getChildren().remove(App.g.getChosenLabel());
-    }}
+    } App.g.isEndGame();
+    }
 
 }

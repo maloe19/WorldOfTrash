@@ -58,6 +58,7 @@ public class StreetController implements Initializable {
        scoreBox.getChildren().add(App.getScoreLabel());
        inventoryPane.getChildren().add(App.getInventoryBox());
        App.getConsole().appendText("you are on the street \n");
+       checkTrash();
        
 
     }    
@@ -99,5 +100,17 @@ public class StreetController implements Initializable {
             App.getConsole().appendText("Soda is chosen\n");
             App.g.setChosenLabel(sodacan); 
         }
+    }
+    
+       private void checkTrash() {
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("jar"))){
+           trashPaneS.getChildren().remove(jar);
+       } 
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("newspaper"))){
+           trashPaneS.getChildren().remove(newspaper);
+       }
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("soda"))){
+           trashPaneS.getChildren().remove(sodacan);
+       }
     }
 }

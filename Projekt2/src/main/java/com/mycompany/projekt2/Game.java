@@ -181,12 +181,12 @@ public class Game {
         }
         return wantToQuit;
     }
-
-    public void isEndGame () throws IOException {
-        if (gameIsCompleted()) {
-            App.setRoot("endscreen");
-        }
-    }
+      public void isEndGame() throws IOException {
+        gameIsCompleted();
+          //  App.setRoot("endscreen");
+       // }
+    }   
+    
     
     public boolean throwTrash (String trash, ExtendedArrayList bin) throws IOException{
         Trash key = App.g.inv.getItemKey(trash);
@@ -198,9 +198,8 @@ public class Game {
             App.g.score.scorePositive(key.getRecyclability());
             App.g.inv.removeTrash(key);
             isValid = true;
-            App.getConsole().appendText("Good job!\nYou threw the " + trash + "in the right bin\n");
-            App.g.isEndGame();
-            //App.getInventoryBox().getChildren().remove(label);
+            App.getConsole().appendText("Good job!\nYou threw the " + trash + " in the right bin\n");
+            //App.g.isEndGame();
         } else if (!key.getBinType().equalsIgnoreCase(bin.getType())){
             //Ukorrekt tilfælde
         App.g.score.scoreNegative(key.getRecyclability());
@@ -367,15 +366,19 @@ public class Game {
             return true;
         }
     }
-    
-    public boolean gameIsCompleted() {
-        for (Room r : roomList) {
+        //boolean
+        public void gameIsCompleted() {
+        for (Room r : App.g.roomList) {
             if (!r.getTrashList().isEmpty()) {
-                return false;
+                System.out.println("___R-List___");
+                r.printTrashList();
+                //return false;
             }
         }
-        return inv.getBackpack().isEmpty();
+        System.out.println("INV:" +App.g.inv.getBackpack().isEmpty());
+        //return App.g.inv.getBackpack().isEmpty();
     }
+    
 
     public Room getCurrentRoom() {
         return currentRoom;

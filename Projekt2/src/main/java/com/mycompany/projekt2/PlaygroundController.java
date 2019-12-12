@@ -51,6 +51,7 @@ public class PlaygroundController implements Initializable {
        scoreBox.getChildren().add(App.getScoreLabel());
        inventoryPane.getChildren().add(App.getInventoryBox());
        App.getConsole().appendText("you are at the playground \n");
+       checkTrash();
 
     }    
     
@@ -90,6 +91,18 @@ public class PlaygroundController implements Initializable {
         } else if (App.g.pickUpTrash("bag") == 2) {
             App.getConsole().appendText("Bag is chosen\n");
             App.g.setChosenLabel(bag);
-
-}
+        }
+    }
+    
+    private void checkTrash() {
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("juicebox"))){
+           trashPaneP.getChildren().remove(juice);
+       } 
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("bag"))){
+           trashPaneP.getChildren().remove(bag);
+       }
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("ball"))){
+           trashPaneP.getChildren().remove(ball);
+    }
+     
 }}

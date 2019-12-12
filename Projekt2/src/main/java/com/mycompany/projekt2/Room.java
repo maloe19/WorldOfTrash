@@ -96,5 +96,12 @@ public class Room
     {
         return exits.get(direction);
     }
-}
+      public void printTrashList(){
+        for(Trash tr : trashList){
+            System.out.println(tr.getName());
+            }  
+        }
+        
+    }
+
 
