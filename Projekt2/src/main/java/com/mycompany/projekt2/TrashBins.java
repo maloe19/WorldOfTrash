@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class TrashBins {
 
-    // attribute for the overall trashbin. 
-    private ArrayList<ArrayList> trashBins;
+   //attribute for the overall trashbin. 
+   public ArrayList<ArrayList> trashBins;
 
     // Method - returning the trashbin value. 
     public ArrayList<ArrayList> getTrashBins() {

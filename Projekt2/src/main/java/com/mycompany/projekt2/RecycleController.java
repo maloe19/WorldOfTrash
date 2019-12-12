@@ -11,7 +11,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -60,22 +59,26 @@ public class RecycleController implements Initializable {
 
     @FXML
     private void plasticthrown(MouseEvent event) {
-        System.out.println("plastic clicked");
+       App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getPlasticBin());
+       App.getInventoryBox().getChildren().remove(App.g.getChosenTrash());
     }
 
     @FXML
     private void metalthrown(MouseEvent event) {
     System.out.println("metal clicked");
+    App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getMetalBin());
     }
 
     @FXML
     private void cardboardthrown(MouseEvent event) {
     System.out.println("cardboard clicked");
+    App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getCardboardBin());
     }
 
     @FXML
     private void glassthrown(MouseEvent event) {
     System.out.println("glass clicked");
+    App.g.throwTrash(App.g.getChosenTrash(), ((Recycle) App.g.getCurrentRoom()).getGlassBin());
     }
 
 }

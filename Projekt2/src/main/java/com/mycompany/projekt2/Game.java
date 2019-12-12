@@ -16,6 +16,15 @@ public class Game {
     public ArrayList<Room> roomList;
     Inventory inv;
     Score score = new Score();
+    private String chosenTrash;
+
+    public String getChosenTrash() {
+        return chosenTrash;
+    }
+
+    public void setChosenTrash(String chosenTrash) {
+        this.chosenTrash = chosenTrash;
+    }
    
     //Constructor that sets up the game (parser, rooms, trash etc.)
     public Game() {
@@ -165,15 +174,36 @@ public class Game {
         } else if (commandWord == CommandWord.PICKUP) {
            // pickUpTrash(command);
         } else if (commandWord == CommandWord.THROW) {
-            throwTrash(command);
+            //throwTrash(command);
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
         return wantToQuit;
     }
 
+    public boolean throwTrash (String trash, ExtendedArrayList bin, Node label){
+        Trash key = App.g.inv.getItemKey(trash);
+        boolean isValid = false;
+        if (App.g.chosenTrash == null){
+            App.getConsole().appendText("pick a trash to throw\n");
+        } else if (key.getBinType().equalsIgnoreCase(bin.getType())) {
+            //I korrekt tilfælde
+            App.g.score.scorePositive(key.getRecyclability());
+            App.g.inv.removeTrash(key);
+            isValid = true;
+            App.getConsole().appendText("Good job! - You threw the " + trash + "in the right bin\n");
+            App.getInventoryBox().getChildren().remove(label);
+        } else if (!key.getBinType().equalsIgnoreCase(bin.getType())){
+            //Ukorrekt tilfælde
+        App.g.score.scoreNegative(key.getRecyclability());
+        App.getConsole().appendText("Oh! - You threw the " + trash + "in the wrong bin\nPick a trash again\n");
+        } 
+        App.g.setChosenTrash(null);
+        return isValid;
+    }
+    
     //Method for throwing trash from backpack, into every possible scenario
-    public void throwTrash(Command command) {
+   /* public void throwTrash(Command command) {
         String item = command.getSecondWord();
         Trash key = inv.getItemKey(item);
         String bin = command.getThirdWord();
@@ -226,7 +256,7 @@ public class Game {
         } else {
             System.out.println("Invalid input");
         }
-    }
+    }*/
 
     public int pickUpTrash(String trash) {
         int occasion = 3;
@@ -239,11 +269,11 @@ public class Game {
         App.g.currentRoom.getTrashList().remove(key);
         App.getConsole().appendText("you picked up the " + trash + "\n");
         occasion = 1;
-    } else if (!App.g.currentRoom.getTrashList().contains(App.g.currentRoom.getTrashKey(trash))){
-            //Her indsætter vi koden for når det skal smides ud
+    } else if (!App.g.currentRoom.getTrashList().contains(App.g.currentRoom.getTrashKey(trash))){  
+            App.g.setChosenTrash(trash);
             occasion = 2;
         } else {
-    App.getConsole().appendText("your backpack is full " + trash + " can't be picked up\n");    
+    App.getConsole().appendText("your backpack is full, " + trash + " can't be picked up\n");    
     }
         return occasion;
         }
@@ -345,5 +375,4 @@ public class Game {
 
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
-    }
-}
+    }}

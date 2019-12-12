@@ -15,10 +15,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 /**
  * FXML Controller class
  *
@@ -44,6 +46,7 @@ public class StreetController implements Initializable {
     private Pane trashPaneS;
     @FXML
     private AnchorPane inventoryPane;
+   
     /**
      * Initializes the controller class.
      */
@@ -53,6 +56,7 @@ public class StreetController implements Initializable {
        scoreBox.getChildren().add(App.getScoreLabel());
        inventoryPane.getChildren().add(App.getInventoryBox());
        App.getConsole().appendText("you are on the street \n");
+       
 
     }    
     
@@ -68,8 +72,7 @@ public class StreetController implements Initializable {
         App.getInventoryBox().getChildren().add(newspaper);
         trashPaneS.getChildren().remove(newspaper);
         } else if (App.g.pickUpTrash("Newspaper") == 2) {
-            //Hvad end der nu skal ske :)
-            App.getConsole().appendText("Alrdy picked");
+            //newspaper.setEffect(App.getBorderglow()); 
         }
     }
 
@@ -78,6 +81,8 @@ public class StreetController implements Initializable {
         if (App.g.pickUpTrash("Jar") == 1) {
         App.getInventoryBox().getChildren().add(jar);
         trashPaneS.getChildren().remove(jar);
+        } else if (App.g.pickUpTrash("jar") == 2) {
+            //Hvad end der nu skal ske :)
         }
     }
 

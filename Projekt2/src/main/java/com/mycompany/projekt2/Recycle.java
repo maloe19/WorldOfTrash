@@ -51,4 +51,23 @@ public class Recycle extends Room {
         for(ExtendedArrayList t : trashBins){
             System.out.println(" "+t.getType());
         }
-    }}
+    }
+    
+    public ExtendedArrayList<MetalTrash> getMetalBin() {
+        return metalBin;
+    }
+
+    public ExtendedArrayList<PlasticTrash> getPlasticBin() {
+        return plasticBin;
+    }
+    
+    public ExtendedArrayList<GlassTrash> getGlassBin() {
+        return glassBin;
+    }
+
+    
+    public ExtendedArrayList<CardboardTrash> getCardboardBin() {
+        return cardboardBin;
+    }
+}
+
