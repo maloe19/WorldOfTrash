@@ -7,26 +7,26 @@ import javafx.scene.control.Label;
 
 public class Game {
 
-    //3 attributes and 2 objects 
+//Attributes and objects 
     private Room currentRoom;
     private ArrayList<Room> roomList;
     Inventory inv;
     Score score = new Score();
     private String chosenTrash;
     private Label chosenLabel;
-
+// method to get our room list
     public ArrayList<Room> getRoomList() {
         return roomList;
     }
 
-    //Constructor that sets up the game (parser, rooms, trash etc.)
+    //Constructor that sets up the game 
     public Game() {
         roomList = new ArrayList();
         createRooms();
         inv = new Inventory();
     }
 
-    //Method: creates every element that is default in the game
+    //Method: creates every element that is default in the game and sets them in the designated places
     public void createRooms() {
         Room outside, recycle, playground, forrest, beach, street;
 
@@ -84,13 +84,13 @@ public class Game {
 
         Collections.addAll(roomList, outside, recycle, playground, forrest, beach, street);
     }
-
+// this method will trigger when you have completed the game. You complete the game by collecting all the trash and throws them in the bins
     public void isEndGame() throws IOException {
         if (gameIsCompleted()) {
             App.setRoot("endscreen");
         }
     }
-
+// method that allows us to throw the trash. It will check whether you threw it in the right bin, and checks the score system
     public boolean throwTrash(String trash, ExtendedArrayList bin) throws IOException {
         Trash key = App.g.inv.getItemKey(trash);
         boolean isValid = false;
@@ -108,7 +108,7 @@ public class Game {
         App.g.setChosenTrash(null);
         return isValid;
     }
-
+// allows us to pick up the trash. It will look in our inventory to see if there are room to pick up the trash. Otherwise, it will not allow us to pick it up
     public int pickUpTrash(String trash) {
         int occasion = 3;
 
@@ -127,7 +127,7 @@ public class Game {
         }
         return occasion;
     }
-
+// allows us to go in the different rooms 
     public void goRoom(String direction) throws IOException {
         Room nextRoom = App.g.currentRoom.getExit(direction);
 
@@ -140,7 +140,7 @@ public class Game {
             App.getConsole().appendText(App.g.getCurrentRoom().getLongDescription());
         }
     }
-
+// Method that will finish the game when the requirements is met
     public boolean gameIsCompleted() {
         for (Room r : App.g.getRoomList()) {
             if (!r.getTrashList().isEmpty()) {
@@ -149,27 +149,27 @@ public class Game {
         }
         return App.g.inv.getBackpack().isEmpty();
     }
-
+// getter method that lets us get the current room we are in
     public Room getCurrentRoom() {
         return currentRoom;
     }
-
+// constructor - sets the current room
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
-
+// constructor for chosen label
     public void setChosenLabel(Label chosenLabel) {
         this.chosenLabel = chosenLabel;
     }
-
+// method that gets the chosen label
     public Label getChosenLabel() {
         return chosenLabel;
     }
-
+// method that gets the chosen trash as string
     public String getChosenTrash() {
         return chosenTrash;
     }
-
+// constructor that sets the chosen trash
     public void setChosenTrash(String chosenTrash) {
         this.chosenTrash = chosenTrash;
     }

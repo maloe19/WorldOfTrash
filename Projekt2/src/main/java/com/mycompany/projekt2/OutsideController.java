@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 public class OutsideController implements Initializable {
-
+// attributes for the FXML code
     @FXML
     private Button WTP;
     @FXML
@@ -25,29 +25,29 @@ public class OutsideController implements Initializable {
     private AnchorPane scoreBox;
     @FXML
     private AnchorPane inventoryPane;
-
+// initialize the screen by loading scorebox, inventorypane etc
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         scoreBox.getChildren().add(App.getScoreLabel());
         ancPane.getChildren().add(App.getConsole());
         inventoryPane.getChildren().add(App.getInventoryBox());
     }
-
+// allows us to go to west from outside
     @FXML
     private void westToPlayground(ActionEvent event) throws IOException {
         App.g.goRoom("west");
     }
-
+// allows us to go east
     @FXML
     private void eastToRecycle(ActionEvent event) throws IOException {
         App.g.goRoom("east");
     }
-
+// allows us to go south
     @FXML
     private void southToForrest(ActionEvent event) throws IOException {
         App.g.goRoom("south");
     }
-
+// allows us to go north
     @FXML
     private void northToStreet(ActionEvent event) throws IOException {
         App.g.goRoom("north");

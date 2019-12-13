@@ -7,10 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 
 public class EndscreenController implements Initializable {
-
+// FXML attributes
     @FXML
     private TextArea endscreentext;
-
+// when you have completed the game, this will initialize and the text will then be represented
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         endscreentext.setText("Congratulations!\n"

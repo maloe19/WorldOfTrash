@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class ForrestController implements Initializable {
-
+// various FXML attributes in order to acces them
     @FXML
     private Button NTO;
     @FXML
@@ -30,7 +30,7 @@ public class ForrestController implements Initializable {
     private AnchorPane inventoryPane;
     @FXML
     private Pane trashPaneF;
-
+// this will initialize the room and whats in it FXML-wise
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
@@ -38,17 +38,17 @@ public class ForrestController implements Initializable {
         inventoryPane.getChildren().add(App.getInventoryBox());
         checkTrash();
     }
-
+// Allows us to go north
     @FXML
     private void northToOutside(ActionEvent event) throws IOException {
         App.g.goRoom("north");
     }
-
+// Allows us to east 
     @FXML
     private void eastToBeach(ActionEvent event) throws IOException {
         App.g.goRoom("east");
     }
-
+// Allows us to pick up the bulb trash
     @FXML
     private void pickUpBulb(MouseEvent event) {
         if (App.g.pickUpTrash("Bulb") == 1) {
@@ -59,7 +59,7 @@ public class ForrestController implements Initializable {
             App.g.setChosenLabel(bulb);
         }
     }
-
+// Allows us to pick up the Can trash
     @FXML
     private void pickUpCan(MouseEvent event) {
         if (App.g.pickUpTrash("Can") == 1) {
@@ -70,7 +70,7 @@ public class ForrestController implements Initializable {
             App.g.setChosenLabel(can);
         }
     }
-
+// checks if the room contains the designated trash in order to remove them from the room
     private void checkTrash() {
         if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("bulb"))) {
             trashPaneF.getChildren().remove(bulb);
