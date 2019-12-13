@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="430.0" fitWidth="613.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Slide1.PNG" />
+                  <Image url="@../../../../../../Pics/Slide1.PNG" />
                </image>
             </ImageView>
             <BorderPane layoutX="274.0" layoutY="361.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -28,7 +28,7 @@
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@newspaper.png" />
+                                    <Image url="@../../../../../../Pics/newspaper.png" />
                                  </image>
                               </ImageView>
                            </graphic></Label>
@@ -36,7 +36,7 @@
                            <graphic>
                               <ImageView fitHeight="49.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@sodacan.png" />
+                                    <Image url="@../../../../../../Pics/sodacan.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -45,7 +45,7 @@
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@jar.png" />
+                                    <Image url="@../../../../../../Pics/jar.png" />
                                  </image>
                               </ImageView>
                            </graphic>

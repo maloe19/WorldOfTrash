@@ -16,9 +16,9 @@
    <items>
       <AnchorPane prefHeight="343.0" prefWidth="400.0">
          <children>
-            <ImageView fitHeight="405.0" fitWidth="554.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="424.0" fitWidth="686.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@forrest.png" />
+                  <Image url="@../../../../../../Pics/forrest.png" />
                </image>
                <viewport>
                   <Rectangle2D width="640.0" />
@@ -28,11 +28,11 @@
                <center>
                   <Pane fx:id="trashPaneF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="601.0">
                      <children>
-                        <Label fx:id="bulb" layoutX="240.0" layoutY="188.0" onMouseClicked="#pickUpBulb" prefHeight="0.0" prefWidth="19.0" rotate="-23.2">
+                        <Label fx:id="bulb" layoutX="256.0" layoutY="139.0" onMouseClicked="#pickUpBulb" prefHeight="0.0" prefWidth="19.0" rotate="-23.2">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@bulb.png" />
+                                    <Image url="@../../../../../../Pics/bulb.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -41,7 +41,7 @@
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@can.png" />
+                                    <Image url="@../../../../../../Pics/can.png" />
                                  </image>
                               </ImageView>
                            </graphic>

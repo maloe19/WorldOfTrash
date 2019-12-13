@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="338.0" fitWidth="607.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Beach.PNG" />
+                  <Image url="@../../../../../../Pics/Beach.PNG" />
                </image>
             </ImageView>
             <BorderPane prefHeight="335.3333333333333" prefWidth="583.3333333333334" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -34,7 +34,7 @@
                            <graphic>
                               <ImageView fitHeight="29.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@straw.png" />
+                                    <Image url="@../../../../../../Pics/straw.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -43,7 +43,7 @@
                            <graphic>
                               <ImageView fitHeight="41.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@bottle.png" />
+                                    <Image url="@../../../../../../Pics/bottle.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -52,7 +52,7 @@
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@cardboard.png" />
+                                    <Image url="@../../../../../../Pics/cardboard.png" />
                                  </image>
                               </ImageView>
                            </graphic>
