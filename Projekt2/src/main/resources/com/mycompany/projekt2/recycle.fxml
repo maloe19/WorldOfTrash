@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="400.0" fitWidth="685.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Pics/Recycling.PNG" />
+                  <Image url="@pictures/Recycling.PNG" />
                </image>
             </ImageView>
             <BorderPane layoutY="2.0" prefHeight="398.0" prefWidth="653.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -28,7 +28,7 @@
                            <graphic>
                               <ImageView fitHeight="74.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../Pics/plasticbin.png" />
+                                    <Image url="@pictures/plasticbin.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -37,7 +37,7 @@
                            <graphic>
                               <ImageView fitHeight="78.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../Pics/Metal.PNG" />
+                                    <Image url="@pictures/Metal.PNG" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -46,7 +46,7 @@
                            <graphic>
                               <ImageView fitHeight="75.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../Pics/cardboardbin.png" />
+                                    <Image url="@pictures/cardboardbin.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -55,7 +55,7 @@
                            <graphic>
                               <ImageView fitHeight="75.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../Pics/glassbin.png" />
+                                    <Image url="@pictures/glassbin.png" />
                                  </image>
                               </ImageView>
                            </graphic>

@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Pics/Logo.png" />
+            <Image url="@pictures/Logo.png" />
          </image>
       </ImageView>
       <TextArea fx:id="endscreentext" layoutX="121.0" layoutY="115.0" prefHeight="200.0" prefWidth="384.0" />

@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="366.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Pics/Playground.PNG" />
+                  <Image url="@pictures/Playground.PNG" />
                </image>
             </ImageView>
             <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="399.3333333333333" prefWidth="636.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -28,7 +28,7 @@
                            <graphic>
                               <ImageView fitHeight="44.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../Pics/juice.png" />
+                                    <Image url="@pictures/juice.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -37,7 +37,7 @@
                            <graphic>
                               <ImageView fitHeight="29.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../Pics/ball.png" />
+                                    <Image url="@pictures/ball.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -46,7 +46,7 @@
                            <graphic>
                               <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../Pics/bag.png" />
+                                    <Image url="@pictures/bag.png" />
                                  </image>
                               </ImageView>
                            </graphic>
