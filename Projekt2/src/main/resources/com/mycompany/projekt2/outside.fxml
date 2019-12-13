@@ -14,7 +14,7 @@
    <items>
       <AnchorPane>
          <children>
-            <ImageView fx:id="backgroundImage" fitHeight="356.0" fitWidth="621.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="356.0" fitWidth="621.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Outside.PNG" />
                </image>

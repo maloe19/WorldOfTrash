@@ -3,6 +3,9 @@ package com.mycompany.projekt2;
 import java.util.HashMap;
 
 public class CommandWords {
+    
+}
+    /*
 
     //HashMap for valid commands
     private HashMap<String, CommandWord> validCommands;
@@ -41,4 +44,4 @@ public class CommandWords {
         }
         System.out.println();
     }
-}
+}*/

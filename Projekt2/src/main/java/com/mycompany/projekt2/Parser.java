@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class Parser {
 
+}
+/*
     //Attributes
     private CommandWords commands;
     private Scanner reader;
@@ -40,7 +42,7 @@ public class Parser {
         commands.showAll();
     }
 }
-
+*/
 /*public Command getCommand() {
         String inputLine;
         String word1 = null;

@@ -2,6 +2,8 @@ package com.mycompany.projekt2;
 
 public enum CommandWord
 {
+} 
+    /*
     //Enums - unchangeable variables
     GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), SEARCH("search"), PICKUP("pickup"), THROW("throw");
     
@@ -19,4 +21,4 @@ public enum CommandWord
     {
         return commandString;
     }
-}
+}*/

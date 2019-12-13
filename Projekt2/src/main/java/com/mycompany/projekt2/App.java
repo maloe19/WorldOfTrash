@@ -5,24 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     private static Scene scene;
     private static TextArea console;
     private static Label scoreLabel;
     private static HBox inventoryBox;
-    private static DropShadow borderglow;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -32,19 +25,7 @@ public class App extends Application {
         console = new TextArea();
         scoreLabel = new Label();
         inventoryBox = new HBox();
-        scoreLabel.setText("Score: "+App.g.score.getScore());
-        borderglow = new DropShadow();
-        setEffects();  
-    }
-
-    public static DropShadow getBorderglow() {
-        return borderglow;
-    }
-    
-    public static void setEffects() {
-        App.borderglow.setColor(Color.GREEN);
-        borderglow.setOffsetX(0f);
-        borderglow.setOffsetY(0f);
+        scoreLabel.setText("Score: "+App.g.score.getScore()); 
     }
     
     public static HBox getInventoryBox() {
@@ -70,12 +51,7 @@ public class App extends Application {
 
     public static Game g = new Game();
     
-    
-    
     public static void load(String[] args) {
         launch();
     }
-    
-    
-
 }

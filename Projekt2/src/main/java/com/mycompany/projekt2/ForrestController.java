@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.projekt2;
 
 import java.io.IOException;
@@ -11,20 +6,13 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-/**
- * FXML Controller class
- *
- * @author Bruger
- */
-public class ForrestController implements Initializable {
 
+public class ForrestController implements Initializable {
 
     @FXML
     private Button NTO;
@@ -42,19 +30,15 @@ public class ForrestController implements Initializable {
     private AnchorPane inventoryPane;
     @FXML
     private Pane trashPaneF;
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
         scoreBox.getChildren().add(App.getScoreLabel());
         inventoryPane.getChildren().add(App.getInventoryBox());
-        App.getConsole().appendText("you are in the forrest \n");
         checkTrash();
+    }
 
-    }    
-    
     @FXML
     private void northToOutside(ActionEvent event) throws IOException {
         App.g.goRoom("north");
@@ -68,33 +52,31 @@ public class ForrestController implements Initializable {
     @FXML
     private void pickUpBulb(MouseEvent event) {
         if (App.g.pickUpTrash("Bulb") == 1) {
-        App.getInventoryBox().getChildren().add(bulb);
-        trashPaneF.getChildren().remove(bulb);
+            App.getInventoryBox().getChildren().add(bulb);
+            trashPaneF.getChildren().remove(bulb);
         } else if (App.g.pickUpTrash("bulb") == 2) {
-            App.getConsole().appendText("Bulb is chosen\n");
-            App.g.setChosenLabel(bulb); 
+            App.getConsole().appendText("Bulb is chosen\n\n");
+            App.g.setChosenLabel(bulb);
         }
     }
 
     @FXML
     private void pickUpCan(MouseEvent event) {
         if (App.g.pickUpTrash("Can") == 1) {
-        App.getInventoryBox().getChildren().add(can);
-        trashPaneF.getChildren().remove(can);
+            App.getInventoryBox().getChildren().add(can);
+            trashPaneF.getChildren().remove(can);
         } else if (App.g.pickUpTrash("can") == 2) {
-            App.getConsole().appendText("Can is chosen\n");
-            App.g.setChosenLabel(can); 
+            App.getConsole().appendText("Can is chosen\n\n");
+            App.g.setChosenLabel(can);
         }
-
-    }
-    
-      private void checkTrash() {
-        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("bulb"))){
-           trashPaneF.getChildren().remove(bulb);
-       } 
-        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("can"))){
-           trashPaneF.getChildren().remove(can);
-       }
     }
 
+    private void checkTrash() {
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("bulb"))) {
+            trashPaneF.getChildren().remove(bulb);
+        }
+        if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("can"))) {
+            trashPaneF.getChildren().remove(can);
+        }
+    }
 }
