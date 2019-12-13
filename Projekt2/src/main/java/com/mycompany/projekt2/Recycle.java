@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 // Attributes for each of the trashbins.
 public class Recycle extends Room {
-
+// attributes for the recycle room
     private ExtendedArrayList<PlasticTrash> plasticBin;
     private ExtendedArrayList<MetalTrash> metalBin;
     private ExtendedArrayList<GlassTrash> glassBin;
@@ -38,19 +38,19 @@ public class Recycle extends Room {
     public ArrayList<ExtendedArrayList> getTrashBins() {
         return trashBins;
     }
-
+// method - return metalbin
     public ExtendedArrayList<MetalTrash> getMetalBin() {
         return metalBin;
     }
-
+// return plasticbin
     public ExtendedArrayList<PlasticTrash> getPlasticBin() {
         return plasticBin;
     }
-
+// returns glassbin
     public ExtendedArrayList<GlassTrash> getGlassBin() {
         return glassBin;
     }
-
+// return cardboardbin
     public ExtendedArrayList<CardboardTrash> getCardboardBin() {
         return cardboardBin;
     }

@@ -15,7 +15,7 @@
    <items>
       <AnchorPane prefHeight="304.0" prefWidth="653.0">
          <children>
-            <ImageView fitHeight="400.0" fitWidth="685.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="410.0" fitWidth="683.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@pictures/Recycling.PNG" />
                </image>

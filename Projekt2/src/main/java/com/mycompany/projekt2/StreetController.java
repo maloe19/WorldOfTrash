@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class StreetController implements Initializable {
-
+// attributes for our FXML variables
     @FXML
     private Button STO;
     @FXML
@@ -30,7 +30,7 @@ public class StreetController implements Initializable {
     private Pane trashPaneS;
     @FXML
     private AnchorPane inventoryPane;
-
+// initializes the room / screen 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
@@ -38,13 +38,13 @@ public class StreetController implements Initializable {
         inventoryPane.getChildren().add(App.getInventoryBox());
         checkTrash();
     }
-
+// allows us to go south from street
     @FXML
     private void southToOutside(ActionEvent event) throws IOException {
         App.g.goRoom("south");
 
     }
-
+// allows us to pick up the newspaper trash
     @FXML
     private void pickUpNewspaper(MouseEvent event) throws IOException {
         if (App.g.pickUpTrash("Newspaper") == 1) {
@@ -55,7 +55,7 @@ public class StreetController implements Initializable {
             App.g.setChosenLabel(newspaper);
         }
     }
-
+// allows us to pick up the jar trash
     @FXML
     private void pickUpJar(MouseEvent event) {
         if (App.g.pickUpTrash("jar") == 1) {
@@ -66,7 +66,7 @@ public class StreetController implements Initializable {
             App.g.setChosenLabel(jar);
         }
     }
-
+// allows us to pick up the sodacan trash
     @FXML
     private void pickUpSodaCan(MouseEvent event) {
         if (App.g.pickUpTrash("soda") == 1) {
@@ -77,7 +77,7 @@ public class StreetController implements Initializable {
             App.g.setChosenLabel(sodacan);
         }
     }
-
+// checks if the room contains trash in order to remove them from the room
     private void checkTrash() {
         if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("jar"))) {
             trashPaneS.getChildren().remove(jar);

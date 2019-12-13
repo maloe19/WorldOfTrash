@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class PlaygroundController implements Initializable {
-
+// Attributes for our FXML variables
     @FXML
     private Button ETO;
     @FXML
@@ -30,7 +30,7 @@ public class PlaygroundController implements Initializable {
     private AnchorPane inventoryPane;
     @FXML
     private Pane trashPaneP;
-
+// initializes the screen / room
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ancPane.getChildren().add(App.getConsole());
@@ -38,12 +38,12 @@ public class PlaygroundController implements Initializable {
         inventoryPane.getChildren().add(App.getInventoryBox());
         checkTrash();
     }
-
+// allows us to go east from playground
     @FXML
     private void eastToOutside(ActionEvent event) throws IOException {
         App.g.goRoom("east");
     }
-
+// allows us to pick up the juice trash
     @FXML
     private void pickUpJuice(MouseEvent event) {
         if (App.g.pickUpTrash("juicebox") == 1) {
@@ -55,7 +55,7 @@ public class PlaygroundController implements Initializable {
         }
 
     }
-
+// allows us to pick up the ball trash
     @FXML
     private void pickUpBall(MouseEvent event) {
         if (App.g.pickUpTrash("ball") == 1) {
@@ -66,7 +66,7 @@ public class PlaygroundController implements Initializable {
             App.g.setChosenLabel(ball);
         }
     }
-
+// allows us to pick up the bag trash
     @FXML
     private void pickUpBag(MouseEvent event) {
         if (App.g.pickUpTrash("bag") == 1) {
@@ -77,7 +77,7 @@ public class PlaygroundController implements Initializable {
             App.g.setChosenLabel(bag);
         }
     }
-
+// checks if the room contains trash in order to remove them when picked up
     private void checkTrash() {
         if (!App.g.getCurrentRoom().getTrashList().contains(App.g.getCurrentRoom().getTrashKey("juicebox"))) {
             trashPaneP.getChildren().remove(juice);

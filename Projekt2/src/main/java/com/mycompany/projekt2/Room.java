@@ -54,7 +54,7 @@ public class Room {
     public String getLongDescription() {
         return "You are " + description+"\n\n";
     }
-
+// method- returns name
     public String getName() {
         return name;
     }
