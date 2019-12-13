@@ -10,7 +10,7 @@
       <TextField fx:id="writename" layoutX="226.0" layoutY="361.0" onAction="#enterName" />
       <ImageView fitHeight="343.0" fitWidth="600.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Pics/welcome%20picture.PNG" />
+            <Image url="@pictures/welcome%20picture.PNG" />
          </image>
       </ImageView>
    </children>
